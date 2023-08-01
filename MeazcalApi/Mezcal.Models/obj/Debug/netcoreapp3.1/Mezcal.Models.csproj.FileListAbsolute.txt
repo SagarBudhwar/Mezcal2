@@ -1,0 +1,25 @@
+E:\SVN Project\Mezcal-Latest-25July-2022\MeazcalApi\Mezcal.Models\bin\Debug\netcoreapp3.1\Mezcal.Models.deps.json
+E:\SVN Project\Mezcal-Latest-25July-2022\MeazcalApi\Mezcal.Models\bin\Debug\netcoreapp3.1\Mezcal.Models.dll
+E:\SVN Project\Mezcal-Latest-25July-2022\MeazcalApi\Mezcal.Models\bin\Debug\netcoreapp3.1\Mezcal.Models.pdb
+E:\SVN Project\Mezcal-Latest-25July-2022\MeazcalApi\Mezcal.Models\bin\Debug\netcoreapp3.1\Mezcal.Helpers.dll
+E:\SVN Project\Mezcal-Latest-25July-2022\MeazcalApi\Mezcal.Models\bin\Debug\netcoreapp3.1\Mezcal.Helpers.pdb
+E:\SVN Project\Mezcal-Latest-25July-2022\MeazcalApi\Mezcal.Models\obj\Debug\netcoreapp3.1\Mezcal.Models.csprojAssemblyReference.cache
+E:\SVN Project\Mezcal-Latest-25July-2022\MeazcalApi\Mezcal.Models\obj\Debug\netcoreapp3.1\Mezcal.Models.AssemblyInfoInputs.cache
+E:\SVN Project\Mezcal-Latest-25July-2022\MeazcalApi\Mezcal.Models\obj\Debug\netcoreapp3.1\Mezcal.Models.AssemblyInfo.cs
+E:\SVN Project\Mezcal-Latest-25July-2022\MeazcalApi\Mezcal.Models\obj\Debug\netcoreapp3.1\Mezcal.Models.csproj.CoreCompileInputs.cache
+E:\SVN Project\Mezcal-Latest-25July-2022\MeazcalApi\Mezcal.Models\obj\Debug\netcoreapp3.1\Mezcal.Models.csproj.CopyComplete
+E:\SVN Project\Mezcal-Latest-25July-2022\MeazcalApi\Mezcal.Models\obj\Debug\netcoreapp3.1\Mezcal.Models.dll
+E:\SVN Project\Mezcal-Latest-25July-2022\MeazcalApi\Mezcal.Models\obj\Debug\netcoreapp3.1\Mezcal.Models.pdb
+H:\Holostik-Codes\Mezcal\MeazcalApi\Mezcal.Models\bin\Debug\netcoreapp3.1\Mezcal.Models.deps.json
+H:\Holostik-Codes\Mezcal\MeazcalApi\Mezcal.Models\bin\Debug\netcoreapp3.1\Mezcal.Models.dll
+H:\Holostik-Codes\Mezcal\MeazcalApi\Mezcal.Models\bin\Debug\netcoreapp3.1\Mezcal.Models.pdb
+H:\Holostik-Codes\Mezcal\MeazcalApi\Mezcal.Models\bin\Debug\netcoreapp3.1\Mezcal.Helpers.dll
+H:\Holostik-Codes\Mezcal\MeazcalApi\Mezcal.Models\bin\Debug\netcoreapp3.1\Mezcal.Helpers.pdb
+H:\Holostik-Codes\Mezcal\MeazcalApi\Mezcal.Models\obj\Debug\netcoreapp3.1\Mezcal.Models.csproj.AssemblyReference.cache
+H:\Holostik-Codes\Mezcal\MeazcalApi\Mezcal.Models\obj\Debug\netcoreapp3.1\Mezcal.Models.GeneratedMSBuildEditorConfig.editorconfig
+H:\Holostik-Codes\Mezcal\MeazcalApi\Mezcal.Models\obj\Debug\netcoreapp3.1\Mezcal.Models.AssemblyInfoInputs.cache
+H:\Holostik-Codes\Mezcal\MeazcalApi\Mezcal.Models\obj\Debug\netcoreapp3.1\Mezcal.Models.AssemblyInfo.cs
+H:\Holostik-Codes\Mezcal\MeazcalApi\Mezcal.Models\obj\Debug\netcoreapp3.1\Mezcal.Models.csproj.CoreCompileInputs.cache
+H:\Holostik-Codes\Mezcal\MeazcalApi\Mezcal.Models\obj\Debug\netcoreapp3.1\Mezcal.Models.csproj.CopyComplete
+H:\Holostik-Codes\Mezcal\MeazcalApi\Mezcal.Models\obj\Debug\netcoreapp3.1\Mezcal.Models.dll
+H:\Holostik-Codes\Mezcal\MeazcalApi\Mezcal.Models\obj\Debug\netcoreapp3.1\Mezcal.Models.pdb

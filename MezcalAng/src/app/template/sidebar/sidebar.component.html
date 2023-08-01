@@ -1,0 +1,24 @@
+<div class="test">
+<aside id="left-panel" [class]="isSticky?'sticky':null" class="left-panel">
+  <nav class="navbar navbar-expand-sm navbar-default" id="navbarToggleExternalContent">
+      <div id="main-menu" class="main-menu collapse navbar-collapse">
+          <ul class="nav navbar-nav">
+            <li *ngFor="let nav of sideBarNav" [ngClass]="{'menu-item-has-children':!nav.url}">
+              <!-- <div *ngIf="!nav.url">
+                asdf
+              </div> -->
+              <a class="dropdown-toggle" *ngIf="!nav.url;" href="#"><i class="menu-icon {{nav.icon}}"></i>{{nav.name}}</a>
+              <a class="dropdown-toggle" *ngIf="nav.url;" routerLink="/{{nav.url}}"><i class="menu-icon {{nav.icon}}"></i>{{nav.name}}</a>
+                
+                <ul class="sub-menu children dropdown-menu" *ngIf="nav.children">
+                  <li *ngFor="let subNav of nav.children">
+                    <a routerLink="/{{subNav.url}}">{{subNav.name}}</a>
+                  </li>
+                </ul>   
+                       
+            </li>            
+          </ul>
+      </div><!-- /.navbar-collapse -->
+  </nav>
+</aside>
+</div>

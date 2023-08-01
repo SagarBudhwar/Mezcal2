@@ -1,0 +1,98 @@
+<div class="limiter">
+  <div class="container-login100">
+      <div _ngcontent-uyl-c1="" _ngcontent-rbw-c18="" class="logo-wraper"><img alt="Logo" src="./../../../assets/images/logo.png"></div>
+    <div class="wrap-login100">
+      <form class="login100-form validate-form" [formGroup]="loginForm" novalidate>
+
+        <span class="login100-form-title p-b-34 p-t-27">
+          ingresar
+        </span>
+
+        <div class="wrap-input100 validate-input" data-validate = "Enter username">
+          <input class="input100" type="text" formControlName="UserName" placeholder="numero de usuario" 
+          (keydown.space)="$event.preventDefault()" required>
+          <span class="focus-input100" data-placeholder="&#xf207;"></span>
+          <div *ngIf="f.UserName.errors && (f.UserName.dirty || f.UserName.touched)" class="redmark">
+              <!-- <ng-container *ngIf="f.UserName.errors.required">User name is required</ng-container> -->
+              <ng-container *ngIf="f.UserName.errors.required"> ingrese su numero de usuario</ng-container>
+            </div>
+        </div>
+       
+        <div class="wrap-input100 validate-input" data-validate="Enter password">
+          <input class="input100" type="password" formControlName="Password"  (keydown.space)="$event.preventDefault()" placeholder="clave" required>
+          <span class="focus-input100" data-placeholder="&#xf191;"></span>
+          <div *ngIf="f.Password.errors && (f.Password.dirty || f.Password.touched)" class="redmark">
+              <!-- <ng-container *ngIf="f.Password.errors.required">Password is required</ng-container> -->
+              <ng-container *ngIf="f.Password.errors.required">por favor ingrese su clave </ng-container>
+            </div>
+        </div>        
+        <div>
+
+        </div>
+<div class="row">
+        <div class="col-sm-6">
+          <input formControlName="remember" class="input-checkbox100" id="ckb1" type="checkbox" name="remember-me">
+          <label class="label-checkbox100" for="ckb1">
+            <!-- Remember me -->
+            guardar informacion
+          </label>
+        </div>
+        <div class="text-right p-t-90 col-sm-6">
+          <span class="forgotpass" (click)="ShowforgotPassword()">
+           <!-- // Forgot Password? -->
+           olivido su clave?
+
+          </span>
+          
+        </div>
+      </div>
+        <div class="container-login100-form-btn">
+          <button class="login100-form-btn" [disabled]="loginForm.invalid" (click)="submitForm()">
+            ingresar
+          </button>
+        </div>
+
+        
+      </form>
+    </div>
+
+    <div class="signup-link text-center col-sm-12" style="display:none;"><a routerLink="/signup">Create new account <i class="zmdi zmdi-long-arrow-right"></i></a></div>
+  </div>
+</div>
+
+
+<p-dialog header="Forgot Password" [modal]="display" [blockScroll]="display" [(visible)]="display"
+  position="center"  [style]="{width: '30vw'}">
+  <ng-template pTemplate="header">
+   <!-- <h4> Forgot Password</h4> -->
+   <h4> olvide mi clave</h4>
+</ng-template>
+<form [formGroup]="ForgotPwdFrom" class="modelForm" (ngSubmit)="SendForgotPassword()" novalidate> 
+  <div class="form-group col-sm-12 ">
+    <!-- Email -->
+    <label for="Email"><b>ID de Email </b> <span style="color: red"> *</span> :</label>
+    <input type="email"   pattern="^[A-Za-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"
+     formControlName="Email" class="form-control"
+     [ngClass]="{ 'is-invalid': u.Email.errors && (u.Email.dirty || u.Email.touched) }"
+     >
+     <div *ngIf="u.Email.invalid && (u.Email.dirty || u.Email.touched)" class="invalid-feedback">
+      <!-- Email Id is required
+      Please Enter a Valid EmailID -->
+      <div *ngIf="u.Email.errors!.required">coreo es requerido</div>
+      <div *ngIf="u.Email.errors?.pattern">ingrese su clave de Email valida</div>
+    </div>
+  </div>
+
+  
+  <!-- Send Password -->
+  <div class="form-group">
+    <button type="submit" [disabled]="ForgotPwdFrom.invalid" class="btn btn-primary">Enviar</button>
+  </div>
+
+ </form>
+ <ng-template pTemplate="footer">
+  <p style="font-size: small; color:red; margin-bottom: 0%; position:unset;">agregar: por favor ingrese solo el correo  registrado.</p>
+  <!-- Note: Please Enter your registered Email. -->
+ </ng-template>
+ 
+</p-dialog>

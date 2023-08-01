@@ -1,0 +1,133 @@
+E:\SVN Project\Mezcal-Latest-25July-2022\MeazcalApi\Mezcal\bin\Debug\net5.0\NLog.config
+E:\SVN Project\Mezcal-Latest-25July-2022\MeazcalApi\Mezcal\bin\Debug\net5.0\appsettings.Development.json
+E:\SVN Project\Mezcal-Latest-25July-2022\MeazcalApi\Mezcal\bin\Debug\net5.0\appsettings.json
+E:\SVN Project\Mezcal-Latest-25July-2022\MeazcalApi\Mezcal\bin\Debug\net5.0\Mezcal.exe
+E:\SVN Project\Mezcal-Latest-25July-2022\MeazcalApi\Mezcal\bin\Debug\net5.0\Mezcal.deps.json
+E:\SVN Project\Mezcal-Latest-25July-2022\MeazcalApi\Mezcal\bin\Debug\net5.0\Mezcal.runtimeconfig.json
+E:\SVN Project\Mezcal-Latest-25July-2022\MeazcalApi\Mezcal\bin\Debug\net5.0\Mezcal.runtimeconfig.dev.json
+E:\SVN Project\Mezcal-Latest-25July-2022\MeazcalApi\Mezcal\bin\Debug\net5.0\Mezcal.dll
+E:\SVN Project\Mezcal-Latest-25July-2022\MeazcalApi\Mezcal\bin\Debug\net5.0\ref\Mezcal.dll
+E:\SVN Project\Mezcal-Latest-25July-2022\MeazcalApi\Mezcal\bin\Debug\net5.0\Mezcal.pdb
+E:\SVN Project\Mezcal-Latest-25July-2022\MeazcalApi\Mezcal\bin\Debug\net5.0\Dapper.dll
+E:\SVN Project\Mezcal-Latest-25July-2022\MeazcalApi\Mezcal\bin\Debug\net5.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
+E:\SVN Project\Mezcal-Latest-25July-2022\MeazcalApi\Mezcal\bin\Debug\net5.0\Microsoft.DotNet.PlatformAbstractions.dll
+E:\SVN Project\Mezcal-Latest-25July-2022\MeazcalApi\Mezcal\bin\Debug\net5.0\Microsoft.Extensions.DependencyInjection.Abstractions.dll
+E:\SVN Project\Mezcal-Latest-25July-2022\MeazcalApi\Mezcal\bin\Debug\net5.0\Microsoft.Extensions.DependencyModel.dll
+E:\SVN Project\Mezcal-Latest-25July-2022\MeazcalApi\Mezcal\bin\Debug\net5.0\Microsoft.Extensions.Options.dll
+E:\SVN Project\Mezcal-Latest-25July-2022\MeazcalApi\Mezcal\bin\Debug\net5.0\Microsoft.Extensions.Primitives.dll
+E:\SVN Project\Mezcal-Latest-25July-2022\MeazcalApi\Mezcal\bin\Debug\net5.0\Microsoft.IdentityModel.JsonWebTokens.dll
+E:\SVN Project\Mezcal-Latest-25July-2022\MeazcalApi\Mezcal\bin\Debug\net5.0\Microsoft.IdentityModel.Logging.dll
+E:\SVN Project\Mezcal-Latest-25July-2022\MeazcalApi\Mezcal\bin\Debug\net5.0\Microsoft.IdentityModel.Protocols.dll
+E:\SVN Project\Mezcal-Latest-25July-2022\MeazcalApi\Mezcal\bin\Debug\net5.0\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
+E:\SVN Project\Mezcal-Latest-25July-2022\MeazcalApi\Mezcal\bin\Debug\net5.0\Microsoft.IdentityModel.Tokens.dll
+E:\SVN Project\Mezcal-Latest-25July-2022\MeazcalApi\Mezcal\bin\Debug\net5.0\Microsoft.OpenApi.dll
+E:\SVN Project\Mezcal-Latest-25July-2022\MeazcalApi\Mezcal\bin\Debug\net5.0\Newtonsoft.Json.dll
+E:\SVN Project\Mezcal-Latest-25July-2022\MeazcalApi\Mezcal\bin\Debug\net5.0\NLog.dll
+E:\SVN Project\Mezcal-Latest-25July-2022\MeazcalApi\Mezcal\bin\Debug\net5.0\NLog.Extensions.Logging.dll
+E:\SVN Project\Mezcal-Latest-25July-2022\MeazcalApi\Mezcal\bin\Debug\net5.0\NLog.Web.AspNetCore.dll
+E:\SVN Project\Mezcal-Latest-25July-2022\MeazcalApi\Mezcal\bin\Debug\net5.0\Swashbuckle.AspNetCore.Swagger.dll
+E:\SVN Project\Mezcal-Latest-25July-2022\MeazcalApi\Mezcal\bin\Debug\net5.0\Swashbuckle.AspNetCore.SwaggerGen.dll
+E:\SVN Project\Mezcal-Latest-25July-2022\MeazcalApi\Mezcal\bin\Debug\net5.0\Swashbuckle.AspNetCore.SwaggerUI.dll
+E:\SVN Project\Mezcal-Latest-25July-2022\MeazcalApi\Mezcal\bin\Debug\net5.0\System.Data.SqlClient.dll
+E:\SVN Project\Mezcal-Latest-25July-2022\MeazcalApi\Mezcal\bin\Debug\net5.0\System.IdentityModel.Tokens.Jwt.dll
+E:\SVN Project\Mezcal-Latest-25July-2022\MeazcalApi\Mezcal\bin\Debug\net5.0\System.Runtime.CompilerServices.Unsafe.dll
+E:\SVN Project\Mezcal-Latest-25July-2022\MeazcalApi\Mezcal\bin\Debug\net5.0\runtimes\win-arm64\native\sni.dll
+E:\SVN Project\Mezcal-Latest-25July-2022\MeazcalApi\Mezcal\bin\Debug\net5.0\runtimes\win-x64\native\sni.dll
+E:\SVN Project\Mezcal-Latest-25July-2022\MeazcalApi\Mezcal\bin\Debug\net5.0\runtimes\win-x86\native\sni.dll
+E:\SVN Project\Mezcal-Latest-25July-2022\MeazcalApi\Mezcal\bin\Debug\net5.0\runtimes\unix\lib\netcoreapp2.1\System.Data.SqlClient.dll
+E:\SVN Project\Mezcal-Latest-25July-2022\MeazcalApi\Mezcal\bin\Debug\net5.0\runtimes\win\lib\netcoreapp2.1\System.Data.SqlClient.dll
+E:\SVN Project\Mezcal-Latest-25July-2022\MeazcalApi\Mezcal\bin\Debug\net5.0\Mezcal.Data.dll
+E:\SVN Project\Mezcal-Latest-25July-2022\MeazcalApi\Mezcal\bin\Debug\net5.0\Mezcal.Dtos.dll
+E:\SVN Project\Mezcal-Latest-25July-2022\MeazcalApi\Mezcal\bin\Debug\net5.0\Mezcal.Helpers.dll
+E:\SVN Project\Mezcal-Latest-25July-2022\MeazcalApi\Mezcal\bin\Debug\net5.0\Mezcal.IRepository.dll
+E:\SVN Project\Mezcal-Latest-25July-2022\MeazcalApi\Mezcal\bin\Debug\net5.0\Mezcal.Models.dll
+E:\SVN Project\Mezcal-Latest-25July-2022\MeazcalApi\Mezcal\bin\Debug\net5.0\Mezcal.Data.pdb
+E:\SVN Project\Mezcal-Latest-25July-2022\MeazcalApi\Mezcal\bin\Debug\net5.0\Mezcal.Dtos.pdb
+E:\SVN Project\Mezcal-Latest-25July-2022\MeazcalApi\Mezcal\bin\Debug\net5.0\Mezcal.Helpers.pdb
+E:\SVN Project\Mezcal-Latest-25July-2022\MeazcalApi\Mezcal\bin\Debug\net5.0\Mezcal.Models.pdb
+E:\SVN Project\Mezcal-Latest-25July-2022\MeazcalApi\Mezcal\bin\Debug\net5.0\Mezcal.IRepository.pdb
+E:\SVN Project\Mezcal-Latest-25July-2022\MeazcalApi\Mezcal\obj\Debug\net5.0\Mezcal.csprojAssemblyReference.cache
+E:\SVN Project\Mezcal-Latest-25July-2022\MeazcalApi\Mezcal\obj\Debug\net5.0\Mezcal.GeneratedMSBuildEditorConfig.editorconfig
+E:\SVN Project\Mezcal-Latest-25July-2022\MeazcalApi\Mezcal\obj\Debug\net5.0\Mezcal.AssemblyInfoInputs.cache
+E:\SVN Project\Mezcal-Latest-25July-2022\MeazcalApi\Mezcal\obj\Debug\net5.0\Mezcal.AssemblyInfo.cs
+E:\SVN Project\Mezcal-Latest-25July-2022\MeazcalApi\Mezcal\obj\Debug\net5.0\Mezcal.csproj.CoreCompileInputs.cache
+E:\SVN Project\Mezcal-Latest-25July-2022\MeazcalApi\Mezcal\obj\Debug\net5.0\Mezcal.MvcApplicationPartsAssemblyInfo.cs
+E:\SVN Project\Mezcal-Latest-25July-2022\MeazcalApi\Mezcal\obj\Debug\net5.0\Mezcal.MvcApplicationPartsAssemblyInfo.cache
+E:\SVN Project\Mezcal-Latest-25July-2022\MeazcalApi\Mezcal\obj\Debug\net5.0\staticwebassets\Mezcal.StaticWebAssets.Manifest.cache
+E:\SVN Project\Mezcal-Latest-25July-2022\MeazcalApi\Mezcal\obj\Debug\net5.0\staticwebassets\Mezcal.StaticWebAssets.xml
+E:\SVN Project\Mezcal-Latest-25July-2022\MeazcalApi\Mezcal\obj\Debug\net5.0\scopedcss\bundle\Mezcal.styles.css
+E:\SVN Project\Mezcal-Latest-25July-2022\MeazcalApi\Mezcal\obj\Debug\net5.0\Mezcal.RazorTargetAssemblyInfo.cache
+E:\SVN Project\Mezcal-Latest-25July-2022\MeazcalApi\Mezcal\obj\Debug\net5.0\Mezcal.csproj.CopyComplete
+E:\SVN Project\Mezcal-Latest-25July-2022\MeazcalApi\Mezcal\obj\Debug\net5.0\Mezcal.dll
+E:\SVN Project\Mezcal-Latest-25July-2022\MeazcalApi\Mezcal\obj\Debug\net5.0\ref\Mezcal.dll
+E:\SVN Project\Mezcal-Latest-25July-2022\MeazcalApi\Mezcal\obj\Debug\net5.0\Mezcal.pdb
+E:\SVN Project\Mezcal-Latest-25July-2022\MeazcalApi\Mezcal\obj\Debug\net5.0\Mezcal.genruntimeconfig.cache
+H:\Holostik-Codes\Mezcal\MeazcalApi\Mezcal\bin\Debug\net5.0\NLog.config
+H:\Holostik-Codes\Mezcal\MeazcalApi\Mezcal\bin\Debug\net5.0\appsettings.Development.json
+H:\Holostik-Codes\Mezcal\MeazcalApi\Mezcal\bin\Debug\net5.0\appsettings.json
+H:\Holostik-Codes\Mezcal\MeazcalApi\Mezcal\bin\Debug\net5.0\Mezcal.StaticWebAssets.xml
+H:\Holostik-Codes\Mezcal\MeazcalApi\Mezcal\bin\Debug\net5.0\Mezcal.exe
+H:\Holostik-Codes\Mezcal\MeazcalApi\Mezcal\bin\Debug\net5.0\Mezcal.deps.json
+H:\Holostik-Codes\Mezcal\MeazcalApi\Mezcal\bin\Debug\net5.0\Mezcal.runtimeconfig.json
+H:\Holostik-Codes\Mezcal\MeazcalApi\Mezcal\bin\Debug\net5.0\Mezcal.runtimeconfig.dev.json
+H:\Holostik-Codes\Mezcal\MeazcalApi\Mezcal\bin\Debug\net5.0\Mezcal.dll
+H:\Holostik-Codes\Mezcal\MeazcalApi\Mezcal\bin\Debug\net5.0\Mezcal.pdb
+H:\Holostik-Codes\Mezcal\MeazcalApi\Mezcal\bin\Debug\net5.0\Dapper.dll
+H:\Holostik-Codes\Mezcal\MeazcalApi\Mezcal\bin\Debug\net5.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
+H:\Holostik-Codes\Mezcal\MeazcalApi\Mezcal\bin\Debug\net5.0\Microsoft.DotNet.PlatformAbstractions.dll
+H:\Holostik-Codes\Mezcal\MeazcalApi\Mezcal\bin\Debug\net5.0\Microsoft.Extensions.DependencyInjection.Abstractions.dll
+H:\Holostik-Codes\Mezcal\MeazcalApi\Mezcal\bin\Debug\net5.0\Microsoft.Extensions.DependencyModel.dll
+H:\Holostik-Codes\Mezcal\MeazcalApi\Mezcal\bin\Debug\net5.0\Microsoft.Extensions.Options.dll
+H:\Holostik-Codes\Mezcal\MeazcalApi\Mezcal\bin\Debug\net5.0\Microsoft.Extensions.Primitives.dll
+H:\Holostik-Codes\Mezcal\MeazcalApi\Mezcal\bin\Debug\net5.0\Microsoft.IdentityModel.JsonWebTokens.dll
+H:\Holostik-Codes\Mezcal\MeazcalApi\Mezcal\bin\Debug\net5.0\Microsoft.IdentityModel.Logging.dll
+H:\Holostik-Codes\Mezcal\MeazcalApi\Mezcal\bin\Debug\net5.0\Microsoft.IdentityModel.Protocols.dll
+H:\Holostik-Codes\Mezcal\MeazcalApi\Mezcal\bin\Debug\net5.0\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
+H:\Holostik-Codes\Mezcal\MeazcalApi\Mezcal\bin\Debug\net5.0\Microsoft.IdentityModel.Tokens.dll
+H:\Holostik-Codes\Mezcal\MeazcalApi\Mezcal\bin\Debug\net5.0\Microsoft.OpenApi.dll
+H:\Holostik-Codes\Mezcal\MeazcalApi\Mezcal\bin\Debug\net5.0\Newtonsoft.Json.dll
+H:\Holostik-Codes\Mezcal\MeazcalApi\Mezcal\bin\Debug\net5.0\NLog.dll
+H:\Holostik-Codes\Mezcal\MeazcalApi\Mezcal\bin\Debug\net5.0\NLog.Extensions.Logging.dll
+H:\Holostik-Codes\Mezcal\MeazcalApi\Mezcal\bin\Debug\net5.0\NLog.Web.AspNetCore.dll
+H:\Holostik-Codes\Mezcal\MeazcalApi\Mezcal\bin\Debug\net5.0\Swashbuckle.AspNetCore.Swagger.dll
+H:\Holostik-Codes\Mezcal\MeazcalApi\Mezcal\bin\Debug\net5.0\Swashbuckle.AspNetCore.SwaggerGen.dll
+H:\Holostik-Codes\Mezcal\MeazcalApi\Mezcal\bin\Debug\net5.0\Swashbuckle.AspNetCore.SwaggerUI.dll
+H:\Holostik-Codes\Mezcal\MeazcalApi\Mezcal\bin\Debug\net5.0\System.Data.SqlClient.dll
+H:\Holostik-Codes\Mezcal\MeazcalApi\Mezcal\bin\Debug\net5.0\System.IdentityModel.Tokens.Jwt.dll
+H:\Holostik-Codes\Mezcal\MeazcalApi\Mezcal\bin\Debug\net5.0\System.Runtime.CompilerServices.Unsafe.dll
+H:\Holostik-Codes\Mezcal\MeazcalApi\Mezcal\bin\Debug\net5.0\runtimes\win-arm64\native\sni.dll
+H:\Holostik-Codes\Mezcal\MeazcalApi\Mezcal\bin\Debug\net5.0\runtimes\win-x64\native\sni.dll
+H:\Holostik-Codes\Mezcal\MeazcalApi\Mezcal\bin\Debug\net5.0\runtimes\win-x86\native\sni.dll
+H:\Holostik-Codes\Mezcal\MeazcalApi\Mezcal\bin\Debug\net5.0\runtimes\unix\lib\netcoreapp2.1\System.Data.SqlClient.dll
+H:\Holostik-Codes\Mezcal\MeazcalApi\Mezcal\bin\Debug\net5.0\runtimes\win\lib\netcoreapp2.1\System.Data.SqlClient.dll
+H:\Holostik-Codes\Mezcal\MeazcalApi\Mezcal\bin\Debug\net5.0\Mezcal.Data.dll
+H:\Holostik-Codes\Mezcal\MeazcalApi\Mezcal\bin\Debug\net5.0\Mezcal.Dtos.dll
+H:\Holostik-Codes\Mezcal\MeazcalApi\Mezcal\bin\Debug\net5.0\Mezcal.Helpers.dll
+H:\Holostik-Codes\Mezcal\MeazcalApi\Mezcal\bin\Debug\net5.0\Mezcal.IRepository.dll
+H:\Holostik-Codes\Mezcal\MeazcalApi\Mezcal\bin\Debug\net5.0\Mezcal.Models.dll
+H:\Holostik-Codes\Mezcal\MeazcalApi\Mezcal\bin\Debug\net5.0\Mezcal.Data.pdb
+H:\Holostik-Codes\Mezcal\MeazcalApi\Mezcal\bin\Debug\net5.0\Mezcal.Dtos.pdb
+H:\Holostik-Codes\Mezcal\MeazcalApi\Mezcal\bin\Debug\net5.0\Mezcal.Helpers.pdb
+H:\Holostik-Codes\Mezcal\MeazcalApi\Mezcal\bin\Debug\net5.0\Mezcal.Models.pdb
+H:\Holostik-Codes\Mezcal\MeazcalApi\Mezcal\bin\Debug\net5.0\Mezcal.IRepository.pdb
+H:\Holostik-Codes\Mezcal\MeazcalApi\Mezcal\obj\Debug\net5.0\Mezcal.csproj.AssemblyReference.cache
+H:\Holostik-Codes\Mezcal\MeazcalApi\Mezcal\obj\Debug\net5.0\Mezcal.GeneratedMSBuildEditorConfig.editorconfig
+H:\Holostik-Codes\Mezcal\MeazcalApi\Mezcal\obj\Debug\net5.0\Mezcal.AssemblyInfoInputs.cache
+H:\Holostik-Codes\Mezcal\MeazcalApi\Mezcal\obj\Debug\net5.0\Mezcal.AssemblyInfo.cs
+H:\Holostik-Codes\Mezcal\MeazcalApi\Mezcal\obj\Debug\net5.0\Mezcal.csproj.CoreCompileInputs.cache
+H:\Holostik-Codes\Mezcal\MeazcalApi\Mezcal\obj\Debug\net5.0\Mezcal.MvcApplicationPartsAssemblyInfo.cs
+H:\Holostik-Codes\Mezcal\MeazcalApi\Mezcal\obj\Debug\net5.0\Mezcal.MvcApplicationPartsAssemblyInfo.cache
+H:\Holostik-Codes\Mezcal\MeazcalApi\Mezcal\obj\Debug\net5.0\scopedcss\bundle\Mezcal.styles.css
+H:\Holostik-Codes\Mezcal\MeazcalApi\Mezcal\obj\Debug\net5.0\staticwebassets\Mezcal.StaticWebAssets.Manifest.cache
+H:\Holostik-Codes\Mezcal\MeazcalApi\Mezcal\obj\Debug\net5.0\staticwebassets\Mezcal.StaticWebAssets.Pack.cache
+H:\Holostik-Codes\Mezcal\MeazcalApi\Mezcal\obj\Debug\net5.0\staticwebassets\msbuild.Mezcal.Microsoft.AspNetCore.StaticWebAssets.props
+H:\Holostik-Codes\Mezcal\MeazcalApi\Mezcal\obj\Debug\net5.0\staticwebassets\msbuild.build.Mezcal.props
+H:\Holostik-Codes\Mezcal\MeazcalApi\Mezcal\obj\Debug\net5.0\staticwebassets\msbuild.buildMultiTargeting.Mezcal.props
+H:\Holostik-Codes\Mezcal\MeazcalApi\Mezcal\obj\Debug\net5.0\staticwebassets\msbuild.buildTransitive.Mezcal.props
+H:\Holostik-Codes\Mezcal\MeazcalApi\Mezcal\obj\Debug\net5.0\Mezcal.RazorTargetAssemblyInfo.cache
+H:\Holostik-Codes\Mezcal\MeazcalApi\Mezcal\obj\Debug\net5.0\Mezcal.csproj.CopyComplete
+H:\Holostik-Codes\Mezcal\MeazcalApi\Mezcal\obj\Debug\net5.0\Mezcal.dll
+H:\Holostik-Codes\Mezcal\MeazcalApi\Mezcal\obj\Debug\net5.0\refint\Mezcal.dll
+H:\Holostik-Codes\Mezcal\MeazcalApi\Mezcal\obj\Debug\net5.0\Mezcal.pdb
+H:\Holostik-Codes\Mezcal\MeazcalApi\Mezcal\obj\Debug\net5.0\Mezcal.genruntimeconfig.cache
+H:\Holostik-Codes\Mezcal\MeazcalApi\Mezcal\obj\Debug\net5.0\ref\Mezcal.dll

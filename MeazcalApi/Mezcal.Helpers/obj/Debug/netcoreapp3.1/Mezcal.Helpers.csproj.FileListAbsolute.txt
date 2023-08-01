@@ -1,0 +1,19 @@
+E:\SVN Project\Mezcal-Latest-25July-2022\MeazcalApi\Mezcal.Helpers\bin\Debug\netcoreapp3.1\Mezcal.Helpers.deps.json
+E:\SVN Project\Mezcal-Latest-25July-2022\MeazcalApi\Mezcal.Helpers\bin\Debug\netcoreapp3.1\Mezcal.Helpers.dll
+E:\SVN Project\Mezcal-Latest-25July-2022\MeazcalApi\Mezcal.Helpers\bin\Debug\netcoreapp3.1\Mezcal.Helpers.pdb
+E:\SVN Project\Mezcal-Latest-25July-2022\MeazcalApi\Mezcal.Helpers\obj\Debug\netcoreapp3.1\Mezcal.Helpers.csprojAssemblyReference.cache
+E:\SVN Project\Mezcal-Latest-25July-2022\MeazcalApi\Mezcal.Helpers\obj\Debug\netcoreapp3.1\Mezcal.Helpers.AssemblyInfoInputs.cache
+E:\SVN Project\Mezcal-Latest-25July-2022\MeazcalApi\Mezcal.Helpers\obj\Debug\netcoreapp3.1\Mezcal.Helpers.AssemblyInfo.cs
+E:\SVN Project\Mezcal-Latest-25July-2022\MeazcalApi\Mezcal.Helpers\obj\Debug\netcoreapp3.1\Mezcal.Helpers.csproj.CoreCompileInputs.cache
+E:\SVN Project\Mezcal-Latest-25July-2022\MeazcalApi\Mezcal.Helpers\obj\Debug\netcoreapp3.1\Mezcal.Helpers.dll
+E:\SVN Project\Mezcal-Latest-25July-2022\MeazcalApi\Mezcal.Helpers\obj\Debug\netcoreapp3.1\Mezcal.Helpers.pdb
+H:\Holostik-Codes\Mezcal\MeazcalApi\Mezcal.Helpers\bin\Debug\netcoreapp3.1\Mezcal.Helpers.deps.json
+H:\Holostik-Codes\Mezcal\MeazcalApi\Mezcal.Helpers\bin\Debug\netcoreapp3.1\Mezcal.Helpers.dll
+H:\Holostik-Codes\Mezcal\MeazcalApi\Mezcal.Helpers\bin\Debug\netcoreapp3.1\Mezcal.Helpers.pdb
+H:\Holostik-Codes\Mezcal\MeazcalApi\Mezcal.Helpers\obj\Debug\netcoreapp3.1\Mezcal.Helpers.csproj.AssemblyReference.cache
+H:\Holostik-Codes\Mezcal\MeazcalApi\Mezcal.Helpers\obj\Debug\netcoreapp3.1\Mezcal.Helpers.GeneratedMSBuildEditorConfig.editorconfig
+H:\Holostik-Codes\Mezcal\MeazcalApi\Mezcal.Helpers\obj\Debug\netcoreapp3.1\Mezcal.Helpers.AssemblyInfoInputs.cache
+H:\Holostik-Codes\Mezcal\MeazcalApi\Mezcal.Helpers\obj\Debug\netcoreapp3.1\Mezcal.Helpers.AssemblyInfo.cs
+H:\Holostik-Codes\Mezcal\MeazcalApi\Mezcal.Helpers\obj\Debug\netcoreapp3.1\Mezcal.Helpers.csproj.CoreCompileInputs.cache
+H:\Holostik-Codes\Mezcal\MeazcalApi\Mezcal.Helpers\obj\Debug\netcoreapp3.1\Mezcal.Helpers.dll
+H:\Holostik-Codes\Mezcal\MeazcalApi\Mezcal.Helpers\obj\Debug\netcoreapp3.1\Mezcal.Helpers.pdb

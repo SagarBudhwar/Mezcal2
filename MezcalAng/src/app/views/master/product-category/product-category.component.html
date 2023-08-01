@@ -1,0 +1,73 @@
+<header>
+    <h2 class="page-heading">Product Category Master</h2>
+  </header>
+  <p-table class="custom-table" #dt [columns]="selectedColumns"
+   [frozenValue]="cols" [scrollable]="true"
+  [autoLayout]="true" [value]="sales" [resizableColumns]="true" selectionMode="multiple"
+  [(selection)]="selectedData" [responsive]="true" [rowsPerPageOptions]="[5,10,20,50,100, totalRecords]" [paginator]="true" [rows]="5" [totalRecords]="totalRecords"
+  sortMode="single" (onLazyLoad)="lazyLoad($event)" sortField="" [lazy]="true">
+  <ng-template pTemplate="caption">
+    <div class="row search-field">
+      <div class="col-md-3">
+<p-multiSelect [options]="cols" [(ngModel)]="selectedColumns"
+        optionLabel="header" selectedItemsLabel="selecciona {0} columnas" [style]="{minWidth: '200px'}"
+        defaultLabel="Choose Columns"></p-multiSelect>
+ </div>
+ <div class="col-md-9">
+<i class="fa fa-search" style="margin:4px 4px 0 0"></i>
+        <input type="text" pInputText placeholder="filtro global" (input)="dt.filterGlobal($any($event).target.value, 'contains')"
+        style="width:auto">
+        <button type="button" pButton icon="fa fa-file-excel-o" iconPos="left" label="Download" (click)="dt.exportCSV()"
+          style="margin-left:12px;"></button>
+        <button type="button" pButton icon="fa fa-plus-circle" (click)="showDialog()" iconPos="left" label="Add"
+          style="margin-left:12px;"></button>
+ </div>
+</div>
+   
+  </ng-template>
+
+  <ng-template pTemplate="header" let-columns>
+    <tr>
+      <th *ngFor="let col of columns" pResizableColumn [pSortableColumn]="col.field">
+        {{col.header}}
+        <p-sortIcon [field]="col.field"></p-sortIcon>
+      </th>
+      <th>Status</th>
+      <th>Action</th>
+    </tr>
+  </ng-template>
+  <ng-template pTemplate="body" let-rowData let-columns="columns">
+    <tr>
+      <td *ngFor="let col of columns">
+        {{rowData[col.field]}}
+      </td>
+      <td><input type="checkbox" disabled [checked]="rowData.isActive" /></td>
+      <td><button type="button" (click)="UpdateUser(rowData)" pButton icon="fa fa-pencil" iconPos="left"></button></td>
+    </tr>
+  </ng-template>
+  </p-table>
+
+  <p-dialog header="{{HeaderText}}" [style]="{'width':'60%'}" [(visible)]="display" [modal]="true" [dismissableMask]="true">
+    <form class="modelForm" [formGroup]="productCategoryForm" (ngSubmit)="submit()" novalidate>
+      <div class="row">
+      <div class="form-group col-sm-6">
+        <label for="email">Category Name<span class="redmark" style="color: red">*</span></label>
+        <input type="text" formControlName="productCategory" class="form-control">
+      </div>
+      <div class="form-group col-sm-6">
+        <label for="pwd">Description<span class="redmark" style="color: red">*</span></label>
+        <input type="text" formControlName="Description" class="form-control">
+      </div>
+      <div class="form-group col-sm-6 mt-5">
+        <span for="pwd" class="pr-2">IsActive:</span>
+        <input #status type="checkbox" class="ml-1" formControlName="IsActive">
+      </div>
+      <div class="form-group col-sm-12 ">
+        <span class="redmark" style="color: red">All fields with (*) are mandatory.</span>
+      </div>
+      <div class="form-group col-sm-12 text-center">
+      <button type="submit" [disabled]="productCategoryForm.invalid" class="btn btn-primary">{{buttonText}}</button>
+      </div>
+    </div>
+    </form>
+  </p-dialog>

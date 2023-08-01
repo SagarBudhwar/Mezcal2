@@ -1,0 +1,265 @@
+{
+  "format": 1,
+  "restore": {
+    "H:\\Holostik-Codes\\Mezcal\\MeazcalApi\\Mezcals.IRepository\\Mezcal.IRepository.csproj": {}
+  },
+  "projects": {
+    "H:\\Holostik-Codes\\Mezcal\\MeazcalApi\\Mezcal.Dtos\\Mezcal.Dtos.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "H:\\Holostik-Codes\\Mezcal\\MeazcalApi\\Mezcal.Dtos\\Mezcal.Dtos.csproj",
+        "projectName": "Mezcal.Dtos",
+        "projectPath": "H:\\Holostik-Codes\\Mezcal\\MeazcalApi\\Mezcal.Dtos\\Mezcal.Dtos.csproj",
+        "packagesPath": "C:\\Users\\hp\\.nuget\\packages\\",
+        "outputPath": "H:\\Holostik-Codes\\Mezcal\\MeazcalApi\\Mezcal.Dtos\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\hp\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "netcoreapp3.1"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "netcoreapp3.1": {
+            "targetAlias": "netcoreapp3.1",
+            "projectReferences": {
+              "H:\\Holostik-Codes\\Mezcal\\MeazcalApi\\Mezcal.Models\\Mezcal.Models.csproj": {
+                "projectPath": "H:\\Holostik-Codes\\Mezcal\\MeazcalApi\\Mezcal.Models\\Mezcal.Models.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netcoreapp3.1": {
+          "targetAlias": "netcoreapp3.1",
+          "dependencies": {
+            "Microsoft.Extensions.Options": {
+              "target": "Package",
+              "version": "[6.0.0-preview.7.21377.19, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.101\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "H:\\Holostik-Codes\\Mezcal\\MeazcalApi\\Mezcal.Helpers\\Mezcal.Helpers.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "H:\\Holostik-Codes\\Mezcal\\MeazcalApi\\Mezcal.Helpers\\Mezcal.Helpers.csproj",
+        "projectName": "Mezcal.Helpers",
+        "projectPath": "H:\\Holostik-Codes\\Mezcal\\MeazcalApi\\Mezcal.Helpers\\Mezcal.Helpers.csproj",
+        "packagesPath": "C:\\Users\\hp\\.nuget\\packages\\",
+        "outputPath": "H:\\Holostik-Codes\\Mezcal\\MeazcalApi\\Mezcal.Helpers\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\hp\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "netcoreapp3.1"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "netcoreapp3.1": {
+            "targetAlias": "netcoreapp3.1",
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netcoreapp3.1": {
+          "targetAlias": "netcoreapp3.1",
+          "dependencies": {
+            "Dapper": {
+              "target": "Package",
+              "version": "[2.0.90, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.101\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "H:\\Holostik-Codes\\Mezcal\\MeazcalApi\\Mezcal.Models\\Mezcal.Models.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "H:\\Holostik-Codes\\Mezcal\\MeazcalApi\\Mezcal.Models\\Mezcal.Models.csproj",
+        "projectName": "Mezcal.Models",
+        "projectPath": "H:\\Holostik-Codes\\Mezcal\\MeazcalApi\\Mezcal.Models\\Mezcal.Models.csproj",
+        "packagesPath": "C:\\Users\\hp\\.nuget\\packages\\",
+        "outputPath": "H:\\Holostik-Codes\\Mezcal\\MeazcalApi\\Mezcal.Models\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\hp\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "netcoreapp3.1"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "netcoreapp3.1": {
+            "targetAlias": "netcoreapp3.1",
+            "projectReferences": {
+              "H:\\Holostik-Codes\\Mezcal\\MeazcalApi\\Mezcal.Helpers\\Mezcal.Helpers.csproj": {
+                "projectPath": "H:\\Holostik-Codes\\Mezcal\\MeazcalApi\\Mezcal.Helpers\\Mezcal.Helpers.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netcoreapp3.1": {
+          "targetAlias": "netcoreapp3.1",
+          "dependencies": {
+            "Microsoft.AspNetCore.Http.Abstractions": {
+              "target": "Package",
+              "version": "[2.2.0, )"
+            },
+            "Microsoft.AspNetCore.Mvc.Core": {
+              "target": "Package",
+              "version": "[2.2.5, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.101\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "H:\\Holostik-Codes\\Mezcal\\MeazcalApi\\Mezcals.IRepository\\Mezcal.IRepository.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "H:\\Holostik-Codes\\Mezcal\\MeazcalApi\\Mezcals.IRepository\\Mezcal.IRepository.csproj",
+        "projectName": "Mezcal.IRepository",
+        "projectPath": "H:\\Holostik-Codes\\Mezcal\\MeazcalApi\\Mezcals.IRepository\\Mezcal.IRepository.csproj",
+        "packagesPath": "C:\\Users\\hp\\.nuget\\packages\\",
+        "outputPath": "H:\\Holostik-Codes\\Mezcal\\MeazcalApi\\Mezcals.IRepository\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\hp\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "netcoreapp3.1"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "netcoreapp3.1": {
+            "targetAlias": "netcoreapp3.1",
+            "projectReferences": {
+              "H:\\Holostik-Codes\\Mezcal\\MeazcalApi\\Mezcal.Dtos\\Mezcal.Dtos.csproj": {
+                "projectPath": "H:\\Holostik-Codes\\Mezcal\\MeazcalApi\\Mezcal.Dtos\\Mezcal.Dtos.csproj"
+              },
+              "H:\\Holostik-Codes\\Mezcal\\MeazcalApi\\Mezcal.Models\\Mezcal.Models.csproj": {
+                "projectPath": "H:\\Holostik-Codes\\Mezcal\\MeazcalApi\\Mezcal.Models\\Mezcal.Models.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netcoreapp3.1": {
+          "targetAlias": "netcoreapp3.1",
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.101\\RuntimeIdentifierGraph.json"
+        }
+      }
+    }
+  }
+}

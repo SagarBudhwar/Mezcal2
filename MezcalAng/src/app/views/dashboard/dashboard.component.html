@@ -1,0 +1,141 @@
+<!-- Widgets  -->
+<div class="row">
+  <div class="col-lg-4 col-md-6 col-sm-6">
+    <div class="card card-stats">
+      <div class="card-header card-header-icon" style="background-color: #6290a0;">
+        <div class="card-icon">
+          <i class="fa fa-users"></i>
+        </div>
+        <p class="card-category">usuarios</p>
+        <h3 class="card-title white-text">{{usersCount}}</h3>
+      </div>
+    </div>
+  </div>
+  <div class="col-lg-4 col-md-6 col-sm-6">
+    <div class="card card-stats">
+      <div class="card-header card-header-icon" style="background-color:#ff9800;">
+        <div class="card-icon">
+          <i class="fa fa-line-chart"></i>
+        </div>
+        <!-- Hologram Stock -->
+        <p class="card-category">inventario de hologramas</p>
+        <h3 class="card-title white-text">{{hologramStockCount}}</h3>
+      </div>
+    </div>
+  </div>
+  <div class="col-lg-4 col-md-6 col-sm-6">
+    <div class="card card-stats">
+      <div class="card-header card-header-icon" style="background-color: #9faeef;">
+        <div class="card-icon">
+          <i class="fa fa-object-group"></i>
+        </div>
+        <!-- <p class="card-category">Mapping</p> -->
+        <p class="card-category">Mapear</p>
+        <h3 class="card-title white-text">{{mappingCount}}</h3>
+      </div>
+    </div>
+  </div>
+  <div class="col-lg-4 col-md-6 col-sm-6">
+    <div class="card card-stats">
+      <div class="card-header card-header-icon" style="background-color:#a7c85f;">
+        <div class="card-icon">
+          <i class="fa fa-object-ungroup"></i>
+        </div>
+        <!-- <p class="card-category">De-Mapping</p> -->
+        <p class="card-category">eliminar Mapeo</p>
+        <h3 class="card-title white-text">{{deMappingCount}}</h3>
+      </div>
+    </div>
+  </div>
+  <div class="col-lg-4 col-md-6 col-sm-6">
+      <div class="card card-stats">
+        <div class="card-header card-header-icon" style="background-color: #6bbaf3;">
+          <div class="card-icon">
+            <i class="fa fa-trash"></i>
+          </div>
+          <!-- <p class="card-category">Damaged</p> -->
+          <p class="card-category">dañado</p>
+          <h3 class="card-title white-text">{{damagedCount}}</h3>
+        </div>
+      </div>
+    </div>
+    <div class="col-lg-4 col-md-6 col-sm-6">
+      <div class="card card-stats">
+        <div class="card-header card-header-icon" style="background-color:#b382f7">
+          <div class="card-icon">
+              <i class="fa fa-eye-slash"></i>
+          </div>
+          <!-- <p class="card-category">Stolen</p> -->
+          <p class="card-category">robado</p>
+          <h3 class="card-title white-text">{{stolenCount}}</h3>
+        </div>
+      </div>
+    </div>
+</div>
+  <!-- /Widgets -->
+  <!--  Traffic  -->
+  <div class="row">
+      <div class="col-lg-12">
+          <div class="card">
+              <div class="card-body text-right">
+                  <!-- <h4 class="box-title">Generate Random Number </h4> -->
+                  <p-selectButton [options]="yearRange" [(ngModel)]="selectedCity" optionLabel="name" (onChange)="valueChanged()"></p-selectButton>
+              </div>
+              <div class="row">
+                  <div class="col-lg-6">
+                      <div class="card-header">
+                        <!-- Mapped Products -->
+                          <label class="chart-heading">producto mapeado</label>
+                      </div>
+                      <div class="card-body">
+                          <!-- <canvas id="TrafficChart"></canvas>   -->
+                          <p-chart type="bar" [data]="mappingData"></p-chart>
+                      </div>
+                  </div>
+                  <div class="col-lg-6">
+                      <div class="card-header">
+                          <label class="chart-heading">producto desmapeado</label>
+                      </div>
+                      <div class="card-body">
+                          <!-- <canvas id="TrafficChart"></canvas>   -->
+                          <p-chart type="bar" [data]="deMappingData"></p-chart>
+                      </div>
+                  </div>
+              </div> <!-- /.row -->
+              <div class="row">
+                  <div class="col-lg-6">
+                      <div class="card-header">
+                        <!-- Damaged Products -->
+                          <label class="chart-heading">producto dañado</label>
+                      </div>
+                      <div class="card-body">
+                          <!-- <canvas id="TrafficChart"></canvas>   -->
+                          <p-chart type="bar" [data]="damageData"></p-chart>
+                      </div>
+                  </div>
+                  <div class="col-lg-6">
+                      <div class="card-header">
+                        <!-- Stolen Products -->
+                          <label class="chart-heading">producto robado</label>
+                      </div>
+                      <div class="card-body">
+                          <!-- <canvas id="TrafficChart"></canvas>   -->
+                          <p-chart type="bar" [data]="stolenData"></p-chart>
+                      </div>
+                  </div>
+              </div>
+              <div class="col-lg-6">
+                  <div class="card-header">
+                    <!-- Registered Users -->
+                      <label class="chart-heading">usuario registrado</label>
+                  </div>
+                  <div class="card-body">
+                      <!-- <canvas id="TrafficChart"></canvas>   -->
+                      <p-chart type="bar" [data]="userRegistrationData"></p-chart>
+                  </div>
+              </div>
+              <div class="card-body"></div>
+          </div>
+      </div><!-- /# column -->
+  </div>
+  <!-- /#add-category -->

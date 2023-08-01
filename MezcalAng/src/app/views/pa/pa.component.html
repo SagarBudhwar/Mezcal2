@@ -1,0 +1,93 @@
+<header class="header-wraper">
+    <h2 class="page-heading text-center pt-5">producto Autenticación</h2>
+    <div class="logo-box"><img src="./../../../assets/images/logo.png"></div>
+    <img class="feedback-icon" (click)="showDialog()" src="./../../../assets/images/feedback.png">
+  </header>
+  
+<div class="wraper" [style]="showFake?'padding-bottom:18px;':null">
+    <div class="message" *ngIf="showGenuine">
+     
+     <h4> {{ Product }}</h4>
+    </div>
+
+
+
+<div class="message" *ngIf="showFake">
+     <img src="./../../../assets/images/wrong-code.png"> producto falsificado.
+      <!-- Fake Product. -->
+     <h4> {{ Product}}</h4>
+     <span style="display:none"  *ngIf="!audio">
+      <iframe src="./../../../assets/voice/alertaana.mp3" allow="autoplay" style="display:none" id="iframeAudio">
+      </iframe> 
+     </span>
+     
+    </div>
+    <div class="message" *ngIf="showDamage">
+      <img src="./../../../assets/images/wrong-code.png"> producto dañado.
+      <!-- Damage Product . -->
+      <h4> {{ Product }}</h4>
+    </div>
+    <div class="message" *ngIf="showStolen">
+      <img src="./../../../assets/images/wrong-code.png">producto robado.
+       <!-- Stolen Product. -->
+      <h4> {{ Product }}</h4>
+      <span style="display:none"  *ngIf="!audio">
+        <iframe src="./../../../assets/voice/stolen.mp3" allow="autoplay" style="display:none" id="iframeAudio">
+        </iframe> 
+       </span>
+    </div>
+    
+    <div class="message" *ngIf="showUnMapped">
+
+      <img src="./../../../assets/images/wrong-code.png">
+
+       <!-- Stolen Product. -->
+
+      <h4> {{ Product }}</h4>
+
+    </div>
+    <div class="image-wraper" *ngIf="showImage">
+      <!-- <img src="./../../../assets/images/product.jpg" /> -->
+ <!-- <img [src]='ImageUrl'/> -->
+    </div>
+    <div class="text-center p-5 social-icon">
+      <a href="https://apps.apple.com/in/app/comercam/id1589965961" target="_blank"><i class="fa fa-apple"></i></a>
+      <a href="https://play.google.com/store/apps/details?id=com.org.mezcal" target="_blank"><i class="fa fa-android"></i></a>
+    </div>
+</div>
+
+<p-dialog header="sugerencias" [(visible)]="feedbackModal" [style]="{'width':'500px'}" [modal]="true" [dismissableMask]="true">
+<form [formGroup]="feedbackForm" (ngSubmit)="SaveFeedback()">
+  <div class="row feedback-form">
+    <div class="col-md-3">nombre<span>*</span></div>   
+    <!-- Name -->
+    <div class="col-md-9 mb-2"><input type="text" class="form-control" [ngClass]="{ 'is-invalid': f.Name.errors && (f.Name.dirty || f.Name.touched) }"   formControlName="Name"/>
+      <div *ngIf="f.Name.errors && (f.Name.dirty || f.Name.touched)" class="invalid-feedback">
+        <div *ngIf="f.Name.errors.required">
+          nombre de usuario requerrido 
+          <!-- Name is required -->
+        </div>
+    </div>
+    </div>
+    <!-- <div class="col-md-3">Email Id<span>*</span></div> -->
+    <div class="col-md-3">ID de Email <span>*</span></div>
+    <div class="col-md-9 mb-2"><input type="text" class="form-control" [ngClass]="{ 'is-invalid': f.Email.errors && (f.Email.dirty || f.Email.touched)}" formControlName="Email" /></div>
+    <!-- <div class="col-md-3">Mobile No.<span>*</span></div> -->
+    <div class="col-md-3">numero celular.<span>*</span></div>
+    <div class="col-md-9 mb-2"><input type="text" class="form-control" [ngClass]="{ 'is-invalid': f.MobNo.errors && (f.MobNo.dirty || f.MobNo.touched) }" formControlName="MobNo" /></div>
+    <!-- <div class="col-md-3">Feedback<span>*</span></div> -->
+    <div class="col-md-3">sugerencias<span>*</span></div>
+    <div class="col-md-9 mb-2"><textarea class="form-control" row="5" [ngClass]="{ 'is-invalid': f.UsrFeedback.errors && (f.UsrFeedback.dirty || f.UsrFeedback.touched) }" formControlName="UsrFeedback"  ></textarea></div>
+    <div class="col-md-3">evaluacion<span></span></div> 
+    <!-- Rating -->
+    <div class="col-md-9 mb-2"><p-rating formControlName="rating"></p-rating></div>
+    <div class="col-md-12 text-center">
+      <button class="btn btn-primary" type="submit" [disabled]="feedbackForm.invalid" >
+        enviar 
+        <!-- Submit -->
+      </button>
+      <!-- [disabled]="feedbackForm.invalid" -->
+    </div>
+  </div>
+</form>
+</p-dialog>

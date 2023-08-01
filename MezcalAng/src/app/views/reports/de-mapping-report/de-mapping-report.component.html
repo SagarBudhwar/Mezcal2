@@ -1,0 +1,83 @@
+<header>
+  <!-- Product De-Mapping Report -->
+  <h2 class="page-heading">reporte de productos desmapeados </h2>
+</header>
+
+<!--QHT-47 -- Edit Icon(Action field) Should be remove While unchecked all column filter. -->
+
+<p-table class="custom-table" #dt2 [columns]="selectedColumns" [scrollable]="true"  exportFilename="reporte de productos desmapeados" [autoLayout]="true"
+[value]="MappingList" [resizableColumns]="true" selectionMode="multiple" (onLazyLoad)="loadLazy($event)" [lazy]="true"  [totalRecords]="totalRecords"
+[(selection)]="selectedData" [responsive]="true"   [showCurrentPageReport]="true" currentPageReportTemplate="ingrese un producto valido: {{totalRecords}}"
+[rowsPerPageOptions]="[5, 10, 20, totalRecords]" [paginator]="true"  [rows]="5" sortMode="multiple" >
+<ng-template pTemplate="caption">
+  <form class="col-sm-12 form-filter">
+  <div class="row search-field">
+    <div class="col-md-3">
+      <p-multiSelect [options]="cols" [(ngModel)]="selectedColumns"
+      optionLabel="header" selectedItemsLabel="selecciona {0} columnas" [style]="{minWidth: '200px'}"
+      defaultLabel="Choose Columns"></p-multiSelect>
+    </div>
+    <div class="col-md-3 text-right">
+      <label class="pr-2"> fecha inicial </label>
+      <!-- <label class="pr-2">From Date</label> -->
+        <p-calendar [monthNavigator]="true" [yearNavigator]="true" [maxDate]="maxDateValue" dateFormat="dd-M-yy" appendTo="body" [ngModelOptions]="{standalone: true}"  yearRange="2000:2050" [(ngModel)]="fromDate" ></p-calendar>
+    </div>
+    <div class="col-md-3">
+      <label class="pr-2"> fecha final </label>
+      <!-- <label class="pr-2">To Date</label> -->
+        <p-calendar class="pr-2" [monthNavigator]="true" [yearNavigator]="true" [minDate]="fromDate" [maxDate]="maxDateValue" [(ngModel)]="toDate" appendTo="body" [ngModelOptions]="{standalone: true}"  dateFormat="dd-M-yy"  yearRange="2000:2050" [(ngModel)]="toDate"></p-calendar>
+        <button type="button" pButton icon="fa fa-search" iconPos="left" (click)="search()"  ></button>
+        <div *ngIf="fromDate >toDate">
+          <p style="color:red; font-size:14px;">fecha de inicio debe ser inferior a la fecha actual</p>
+
+      </div>
+    </div>
+    <div class="col-md-3">
+      <i class="fa fa-search" style="margin:4px 4px 0 0"></i>
+      <input type="text" pInputText placeholder="Global Filter" (input)="dt2.filterGlobal($any($event).target.value, 'contains')"
+        style="width:auto">
+      <button type="button" pButton icon="fa fa-file-excel-o" iconPos="left" label="descargar" (click)="exportAsXLSX()"
+        style="margin-left:5px;"></button>
+    </div>
+  </div>
+</form>
+</ng-template>
+         <ng-template pTemplate="header" let-columns>
+          <tr>
+              <th *ngFor="let col of columns" [pSortableColumn]="col.field">
+                  {{col.header}}
+                  <p-sortIcon [field]="col.field"></p-sortIcon>
+              </th>
+          </tr>
+      </ng-template>
+      <ng-template pTemplate="body" let-rowData let-columns="columns">
+          <tr [pSelectableRow]="rowData">
+              <td *ngFor="let col of columns">
+                      {{rowData[col.field]}}
+
+              </td>
+          </tr>
+      </ng-template>
+      <!-- <ng-template pTemplate="summary">
+        <tr class="text-center" *ngIf="selectedColumns.length == 0">
+            <td>
+                No se encontraron registros
+             </td>
+        </tr>
+    </ng-template> -->
+      <ng-template pTemplate="emptymessage" let-columns>
+          <tr>
+            <td [attr.colspan]="columns.length + 1" class="text-center">
+               No se encontraron registros
+            </td>
+          </tr>
+        </ng-template>
+
+  </p-table>
+
+
+
+
+
+
+

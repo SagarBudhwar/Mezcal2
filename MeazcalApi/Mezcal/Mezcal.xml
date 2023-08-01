@@ -1,0 +1,254 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Mezcal</name>
+    </assembly>
+    <members>
+        <member name="M:Mezcal.Controllers.CommonController.AddBrandMaster(Mezcal.Dtos.BrandMaster)">
+            <summary>
+            This is used to Add Brand
+            </summary>
+        </member>
+        <member name="M:Mezcal.Controllers.CommonController.UpdateBrandMaster(Mezcal.Dtos.BrandMaster)">
+            <summary>
+            This is used to Update the brand
+            </summary>
+            <param name="brand"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Mezcal.Controllers.CommonController.AddTypeMaster(Mezcal.Dtos.TypeMaster)">
+            <summary>
+            Add Type Master
+            </summary>
+            <param name="brand"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Mezcal.Controllers.CommonController.UpdateTypeMaster(Mezcal.Dtos.TypeMaster)">
+            <summary>
+            Update Type Master
+            </summary>
+            <param name="type"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Mezcal.Controllers.CommonController.GetTypeMasterList(Mezcal.Dtos.CommonDto)">
+            <summary>
+            Add Type
+            </summary>
+            <param name="type"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Mezcal.Controllers.CommonController.AddSpeciesMaster(Mezcal.Dtos.SpeciesMaster)">
+            <summary>
+            Add Species Master
+            </summary>
+        </member>
+        <member name="M:Mezcal.Controllers.CommonController.UpdateSpeciesMaster(Mezcal.Dtos.SpeciesMaster)">
+            <summary>
+            update species master
+            </summary>
+            <param name="species"></param>
+            <returns></returns>
+        </member>
+        <!-- Badly formed XML comment ignored for member "M:Mezcal.Controllers.CommonController.GetSpeciesMasterList(Mezcal.Dtos.CommonDto)" -->
+        <member name="M:Mezcal.Controllers.CommonController.AddStateMaster(Mezcal.Dtos.StateMaster)">
+             <summary>
+             Add State Master
+             </summary>
+            
+        </member>
+        <member name="M:Mezcal.Controllers.DashboardController.GetCountForDashboard">
+            <summary>
+            Get total count for dashboard
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Mezcal.Controllers.ErrorController.Error(System.Int32)">
+            <summary>
+            Used for returning error
+            </summary>
+            <param name="code"> catches code that has error</param>
+            <returns></returns>
+        </member>
+        <member name="M:Mezcal.Controllers.HologramStockController.CreateStock(Mezcal.Dtos.HologramStockDto)">
+            <summary>
+            This method use to create stock in application
+            </summary>
+            <param name="stock"></param>
+            <returns code="200">Message of action</returns>
+        </member>
+        <member name="M:Mezcal.Controllers.MappingController.GetMappingListForGrid(Mezcal.Models.CommonUtilsReport)">
+            <summary>
+            Get Mapping Numbers list
+            </summary>
+            <param name="commonUtils"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Mezcal.Controllers.MappingController.GetDeMappingListForGrid(Mezcal.Models.CommonUtilsReport)">
+            <summary>
+            Get Mapping Numbers list
+            </summary>
+            <param name="commonUtils"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Mezcal.Controllers.MappingController.GetProductsListForDdl">
+            <summary>
+            Get product list for dropdown List.
+            </summary>
+            <returns>List</returns>
+        </member>
+        <member name="M:Mezcal.Controllers.MappingController.GetAvailabelHologramStock(Mezcal.Models.CommonUtils)">
+            <summary>
+            Get Availabel HologramStock
+            </summary>
+            <param name="commonUtils"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Mezcal.Controllers.MappingController.GetProductListForSelect(Mezcal.Models.CommonUtils)">
+            <summary>
+            Get Product List for grid for select a product for mapping.
+            </summary>
+            <param name="request">Used For Pagination.</param>
+            <returns>List</returns>
+        </member>
+        <member name="M:Mezcal.Controllers.MappingController.DeMapping(Mezcal.Dtos.MappingDto)">
+            <summary>
+            Used for Demap Numbers 
+            </summary>
+            <param name="mappingDto"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Mezcal.Controllers.ProductController.GetBrandListForDDL">
+            <summary>
+            This api is used to get brand for dropdown list
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Mezcal.Controllers.ProductController.GetCategoryListForDDL">
+            <summary>
+            this api is used to get category data for dropdown list
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Mezcal.Controllers.ProductController.GetTypeListForDDL">
+            <summary>
+            This api is use to get type data for dropdown list
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Mezcal.Controllers.ProductController.GetSpeciesListForDDL">
+            <summary>
+            This api is used to get species data for dropdown list
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Mezcal.Controllers.ProductController.GetStateListForDDL">
+            <summary>
+            This api is used to get the state data for dropdown list
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Mezcal.Controllers.ProductController.GetProductList(Mezcal.Dtos.CommonDto)">
+            <summary>
+            This Api is used to get the product data for grid
+            </summary>
+        </member>
+        <member name="M:Mezcal.Controllers.ProductController.AddProduct(Mezcal.Dtos.ProductDto)">
+            <summary>
+            this api is used to add product
+            </summary>
+            <param name="request"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Mezcal.Controllers.RoleController.CreateUpadteRole(Mezcal.Models.RoleRequest)">
+            <summary>
+            This method use to create and update role in application
+            </summary>
+            <param name="request"></param>
+            <returns code="200">Message of action</returns>
+        </member>
+        <member name="M:Mezcal.Controllers.RoleController.MapPageRole(Mezcal.Models.MapRolePageRequest)">
+            <summary>
+            This method use to map page to role in application
+            </summary>
+            <param name="request"></param>
+            <returns code="200">Message of action</returns>
+        </member>
+        <member name="M:Mezcal.Controllers.RoleController.GetRoleForUsers">
+            <summary>
+            To get role for different users
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Mezcal.Controllers.RoleController.GetRoleDetail(System.Int32)">
+            <summary>
+            This method use to get role detail  in application
+            </summary>
+            <param name="id"></param>
+            <returns code="200">Message of action</returns>
+        </member>
+        <member name="M:Mezcal.Controllers.RoleController.GetPagesForUser(System.Int32)">
+            <summary>
+            This method use to get pages for SPA user
+            </summary>
+            <param name="roleId"></param>
+            <returns code="200">Message of action</returns>
+        </member>
+        <member name="M:Mezcal.Controllers.UserController.SaveUserDetail(Mezcal.Dtos.UserDto)">
+            <summary>
+            SAve User Details
+            </summary>
+            <param name="userDto"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Mezcal.Controllers.UserController.UpdateUserDetail(Mezcal.Dtos.UserDto)">
+            <summary>
+            Update User Details
+            </summary>
+            <param name="userDto"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Mezcal.Controllers.UserController.GetUsersList(Mezcal.Models.CommonUtils)">
+            <summary>
+            Users List from UserMaster to show in grid
+            </summary>
+            <param name="commonUtils"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Mezcal.Controllers.UserController.ChangeLoginPassword(Mezcal.Dtos.ChangeOwnPassword)">
+            <summary>
+            Change user login password
+            </summary>
+            <param name="changeLoginPasswordDTO"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Mezcal.Controllers.UserController.GetUserProfileById(System.Int32)">
+            <summary>
+             Get User details By Id
+            </summary>
+            <param name="userId"></param>
+            <returns>User Details</returns>
+        </member>
+        <member name="M:Mezcal.Controllers.UserController.sendEmailViaWebApi(System.String,System.String,System.String,Microsoft.AspNetCore.Hosting.IWebHostEnvironment)">
+            
+        </member>
+        <member name="T:Mezcal.Extensions.SwaggerServiceExtensions">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:Mezcal.Extensions.SwaggerServiceExtensions.AddSwaggerDocumentation(Microsoft.Extensions.DependencyInjection.IServiceCollection)">
+            <summary>
+            
+            </summary>
+            <param name="services"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Mezcal.Extensions.SwaggerServiceExtensions.UseSwaggerDocumentation(Microsoft.AspNetCore.Builder.IApplicationBuilder)">
+            <summary>
+            
+            </summary>
+            <param name="app"></param>
+            <returns></returns>
+        </member>
+    </members>
+</doc>

@@ -1,0 +1,41 @@
+.send-no-form label {
+    margin-right: 10px;
+}
+
+.btn-primary {
+    padding: 3px 12px;
+    font-size: 13px;
+}
+
+.send-no-form {
+    margin-bottom: 5px;
+}
+
+.send-no-form input[type=text] {
+    width: 70%;border: 1px solid #cccc;padding: 4px;border-radius: 4px;
+}
+
+.mb-3 {
+    margin-bottom:13px;
+}
+.user-form {
+    overflow-x: hidden;
+}
+.search-field > .col-md-9 {
+    text-align:right;
+}
+
+@media(max-width:768px) {
+    .search-field > .col-md-3, .search-field > .col-md-9  {
+        text-align:center;
+    }
+    .search-field > .col-md-9 input {
+        margin-top:8px;
+    }
+}
+
+@media(max-width:514px) {
+    .search-field > .col-md-9 input {
+        margin:8px 0;
+    }
+ }

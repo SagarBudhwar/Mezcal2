@@ -1,0 +1,126 @@
+<header>
+  <h2 class="page-heading">Product Damage</h2>
+</header>
+<p-table class="custom-table" #dt [columns]="selectedDamageColumns" [scrollable]="true" [frozenValue]="cols"
+    [autoLayout]="true" [value]="DamageDetails" [resizableColumns]="true" selectionMode="multiple"
+    (onLazyLoad)="loadLazy($event)" [lazy]="true" [totalRecords]="totalRecords"   [showCurrentPageReport]="true" currentPageReportTemplate="ingrese un producto valido: {{totalRecords}}"
+    [rowsPerPageOptions]="[5,25,50,100,totalRecords]"
+    [responsive]="true" [paginator]="true" sortField="Id" [rows]="5" sortMode="multiple" >
+    <ng-template pTemplate="caption">
+        <div class="row search-field">
+            <div class="col-md-3">
+     <p-multiSelect [options]="cols" [(ngModel)]="selectedDamageColumns"
+            optionLabel="header" selectedItemsLabel="selecciona {0} columnas" defaultLabel="Choose Columns">
+        </p-multiSelect>
+         </div>
+         <div class="col-md-9">
+            <i class="fa fa-search" style="margin:4px 4px 0 0"></i>
+            <input type="text" pInputText size="30" placeholder="filtro global"
+                (input)="dt.filterGlobal($any($event).target.value, 'contains')" style="width:auto">
+         </div>
+     </div>       
+
+    </ng-template>
+    <ng-template pTemplate="header" let-columns>
+        <tr>
+
+            <th *ngFor="let col of columns" [pSortableColumn]="col.field">
+                {{col.header}}
+                <p-sortIcon [field]="col.field"></p-sortIcon>
+            </th>
+            <!-- <th>Action</th> -->
+        </tr>
+
+    </ng-template>
+    <ng-template pTemplate="body" let-rowData let-columns="columns">
+        <tr [pSelectableRow]="rowData">
+
+            <td *ngFor="let col of columns;let i=index">
+                {{rowData[col.field]}}
+            </td>
+
+            <!-- <td>
+                <button class="btn btn-primary" (click)="editDamageStock(rowData)"><i class="fa fa-pencil"></i></button>
+            </td> -->
+        </tr>
+    </ng-template>
+    <!-- <ng-template pTemplate="summary">
+        <tr class="text-center" *ngIf="selectedDamageColumns.length == 0">
+            <td>
+                No se encontraron registros
+             </td>
+        </tr>
+    </ng-template> -->
+    <ng-template pTemplate="emptymessage" let-columns>
+        <tr>
+            <td [attr.colspan]="columns.length + 1" class="text-center">
+                No se encontraron registros
+            </td>
+        </tr>
+    </ng-template>
+</p-table>
+
+<p-dialog [focusOnShow]="false" header="{{modalHeading}}" [(visible)]="display" [modal]="true"
+    [transitionOptions]="'0ms'" [style]="{width: '550px'}" styleClass="my-style-class">
+    <div class="row user-form">
+        <form [formGroup]="DamageStockForm" class="modelForm" (submit)="SaveDamageStockDetail()" novalidate>
+            <div class="col-sm-8">
+                <div class="row">
+                    <div class="col-sm-5">
+                        <label>From Number<span style="color: red">*</span>:</label>
+                    </div>
+                    <div class="col-sm-7">
+
+                        <input type="text" style="width: 280px;" formControlName="FromNumber" class="form-control" />
+                    </div>
+
+                    <div class="col-sm-5">
+                        <label>To Number<span style="color: red">*</span>:</label>
+                    </div>
+                    <div class="col-sm-7">
+                        <input type="text" readonly="true" style="width: 280px;" formControlName="ToNumber"
+                            class="form-control" />
+                    </div>
+
+                    <div class="col-sm-5">
+                        <label>Quantity<span style="color: red">*</span>:</label>
+                    </div>
+                    <div class="col-sm-7">
+                        <input Numericonly numericType="number" (mouseleave)="focusOutFunction()"
+                            style="width: 280px;" formControlName="Quantity"
+                            class="form-control" />
+                        <div *ngIf="formErrors.Quantity">
+                            <div style="color: red;">{{formErrors.Quantity}}</div>
+                        </div>
+                    </div>
+
+
+                    <div class="col-sm-5">
+                        <label>Remark<span style="color: red">*</span>:</label>
+                    </div>
+                    <div class="col-sm-7">
+                        <input type="text" style="width: 280px;" class="form-control" formControlName="Remarks"></div>
+                    <div *ngIf="formErrors.Remarks">
+                        <div style="color: red;">{{formErrors.Remarks}}</div>
+                    </div>
+
+                    <!-- <div class="col-sm-5">
+                        <label>Is Active</label>
+                    </div>
+                    <div class="col-sm-7"><input type="checkbox" formControlName="IsActive" checked="true"> </div> -->
+
+
+
+                    <div class="form-group col-sm-12">
+                        <label for="designation" class="text-danger"><b>agregar :</b> (*) en las casillas seleccionadas.</label>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="col-sm-12 text-center">
+                <button class="btn btn-primary" [disabled]="(DamageStockForm.invalid)">{{btnText}}</button>
+            </div>
+        </form>
+    </div>
+</p-dialog>

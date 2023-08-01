@@ -1,0 +1,120 @@
+<header>
+  <h2 class="page-heading">Generate Random No.</h2>
+</header>
+<p-accordion>
+    <p-accordionTab header="Generate Random No." [selected]="true">
+        <form class="row modelForm" [formGroup]="addHologramMapping" (ngSubmit)="submit()" novalidate>
+            <div class="form-group col-sm-4">
+              <label>So.No.:</label>
+              <input type="text" formControlName="productCode" class="form-control" id="email">
+            </div>
+            <div class="form-group col-sm-4">
+              <label>Customer name:</label>
+              <input type="text" formControlName="productName" class="form-control">
+            </div>
+            <div class="form-group col-sm-4">
+              <label>Item No. :</label>
+              <input type="email" formControlName="fromNo" class="form-control">
+            </div>
+            <div class="form-group col-sm-4">
+                <label>From No. :</label>
+                <input type="email" formControlName="fromNo" class="form-control">
+              </div>
+            <div class="form-group col-sm-4">
+              <label>To No. :</label>
+              <input type="text" formControlName="toNo" class="form-control">
+            </div>
+            <div class="form-group col-sm-4">
+              <label>Url :</label>
+              <input type="text" formControlName="quantity" class="form-control">
+            </div>
+            <div class="form-group col-sm-4">
+                <label>Total Col :</label>
+                <input type="text" formControlName="quantity" class="form-control">
+              </div>
+              <div class="form-group col-sm-4">
+                  <label>Total Ups :</label>
+                  <input type="text" formControlName="quantity" class="form-control">
+                </div>
+                <div class="form-group col-sm-4">
+                    <label>Col Difference :</label>
+                    <input type="text" formControlName="quantity" class="form-control">
+                  </div>
+                  <div class="form-group col-sm-4">
+                      <label>Ups presheet :</label>
+                      <input type="text" formControlName="quantity" class="form-control">
+                    </div>
+                    <div class="form-group col-sm-4">
+                        <label>Is Vertical :</label>
+                        <input type="text" formControlName="quantity" class="form-control">
+                      </div>
+                      <div class="form-group col-sm-4">
+                          <label>Space Between Sheets :</label>
+                          <input type="text" formControlName="quantity" class="form-control">
+                        </div>
+                        <div class="form-group col-sm-4">
+                            <label>Col Center :</label>
+                            <input type="text" formControlName="quantity" class="form-control">
+                          </div>
+
+            <div class="form-group col-sm-12 text-center">
+            <button type="submit" class="btn btn-primary">Submit</button>
+            </div>
+          </form>
+    </p-accordionTab>
+    <p-accordionTab header="Send mail random number">
+      <div class="row send-no-form">
+        <div class="col-sm-4"><label>Upload File: </label>
+          <input type="file" name="myFile">
+        </div>
+        <div class="col-sm-6"><label>Send To: </label>
+          <input type="text" />
+          </div>
+          <div class="col-sm-2">
+            <button type="button" class="btn btn-primary">Send</button>
+            </div>
+      </div>
+        <p-table class="custom-table" #dt [columns]="selectedColumns" [autoLayout]="true" [value]="sales" [resizableColumns]="true" selectionMode="multiple"
+[(selection)]="selectedData" [responsive]="true" [paginator]="true" [rows]="8" sortMode="multiple">
+<ng-template pTemplate="caption">
+  <div class="row search-field">
+    <div class="col-md-3">
+<p-multiSelect [options]="cols" [(ngModel)]="selectedColumns"
+      optionLabel="header" selectedItemsLabel="selecciona {0} columnas" [style]="{minWidth: '200px'}"
+      defaultLabel="Choose Columns"></p-multiSelect>
+</div>
+<div class="col-md-9">
+<i class="fa fa-search" style="margin:4px 4px 0 0"></i>
+      <input type="text" pInputText placeholder="filtro global"
+        style="width:auto">
+</div>
+</div>
+  
+</ng-template>
+
+<ng-template pTemplate="header" let-columns>
+  <tr>
+    <th *ngFor="let col of columns" pResizableColumn [pSortableColumn]="col.field">
+      {{col.header}}
+      <p-sortIcon [field]="col.field"></p-sortIcon>
+    </th>
+
+  </tr>
+</ng-template>
+<ng-template pTemplate="body" let-rowData let-columns="columns">
+  <tr>
+    <td *ngFor="let col of columns">
+      {{rowData[col.field]}}
+    </td>
+
+  </tr>
+</ng-template>
+</p-table>
+    </p-accordionTab>
+
+</p-accordion>
+
+
+
+
+

@@ -1,0 +1,63 @@
+<div  class="row">
+  <div class="col-md-6" style="float: left;">
+<header>
+  <!-- Available Stock -->
+    <h2 class="page-heading">hologramas disponibles</h2>
+  </header>
+</div>
+<div class="col-md-6 text-right prefix-design">
+ <h5 style="padding-right:12px;">Cantidad total (prefijo A)= {{AQuantity}}  </h5>
+   <h5>Cantidad total (prefijo B) = {{BQuantity}}</h5>
+</div>
+</div>
+<p-table class="custom-table" #dt [columns]="selectedColumns1" (onLazyLoad)="loadLazy1($event)" [scrollable]="true" [frozenValue]="cols1"
+[totalRecords]="totalRecords1" [style]="{width:'100%'}" [autoLayout]="true" [value]="AvailableStockList" [lazy]="true"
+[resizableColumns]="true" selectionMode="multiple" [responsive]="true"  [rowsPerPageOptions]="[5, 10, 25,50,100]"
+[paginator]="true" sortField="" [rows]="5" sortMode="multiple"
+[showCurrentPageReport]="true" currentPageReportTemplate="ingrese un producto valido: {{totalRecords1}}">
+
+<ng-template pTemplate="caption">
+  <div class="search-field2">
+    <i class="fa fa-search" style="margin: 4px 4px 0 0;"></i>
+    <input
+      type="text"
+      pInputText
+      size="30"
+      placeholder="filtro global"
+      (input)="dt.filterGlobal($any($event).target.value, 'contains')"
+      style="width: auto;"
+    />
+  
+  </div>
+</ng-template>
+
+<ng-template pTemplate="colgroup" let-columns>
+ <colgroup>
+     <col *ngFor="let col of columns" style="width:170px">
+ </colgroup>
+</ng-template>
+<ng-template pTemplate="header" let-columns>
+  <tr>
+    <th *ngFor="let col of columns" pResizableColumn [pSortableColumn]="col.field">
+      {{col.header}}
+      <p-sortIcon [field]="col.field"></p-sortIcon>
+    </th>
+  </tr>
+</ng-template>
+<ng-template pTemplate="body" let-rowData let-columns="columns">
+  <tr>
+    <td *ngFor="let col of columns">
+      {{rowData[col.field]}}
+    </td>
+
+  </tr>
+</ng-template>
+<ng-template pTemplate="emptymessage" let-columns>
+ <tr>
+   <td [attr.colspan]="columns.length + 1" class="text-center">
+      <!-- No se encontraron registros -->
+      no fue encontrato
+   </td>
+ </tr>
+</ng-template>
+</p-table>

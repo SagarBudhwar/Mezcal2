@@ -1,0 +1,74 @@
+.wraper {
+    max-width: 800px;
+    margin: 0 auto;
+    background: #fff;
+    padding-top: 20px;
+}
+.message {
+    background: #f3f8fc;
+    text-align: center;
+    padding: 12px;
+    margin: 0 12px;
+    border-radius: 12px;
+    border: 1px solid #b4b4b4;
+    color: #57a400;
+    font-size: 23px;
+}
+.feedback-form span {color:red;}
+.message img {
+    display: block;
+    margin: 0 auto 12px;
+    width: 73px;
+}
+.image-wraper {
+    text-align: center;
+    margin: 40px 0;
+}
+.product-detail {
+    background: #e3e3e3;
+    padding: 37px;
+    border-radius: 22px 22px 0 0;
+}
+.product-detail h1 {
+    font-weight: normal;
+}
+.logo-box {
+    text-align: center;
+    margin: 10px 0 28px;
+}
+.logo-box img {
+    width: 300px;
+}
+.social-icon .fa {
+    font-size: 57px;
+    margin: 0 22px;
+    height: 100px;
+    width: 100px;
+    background: #eee;
+    border-radius: 50%;
+    line-height: 100px;
+    color: #64bc44;
+}
+.social-icon .fa-apple {
+    color:black;
+}
+.product-detail div {
+    margin-bottom: 14px;
+}
+.header-wraper .feedback-icon {
+    position: absolute;
+    right: 4px;
+    top: 32px;
+    width: 39px;
+}
+.header-wraper {
+    max-width: 800px;
+    margin: 0 auto;
+    position: relative;
+}
+
+@media(max-width:360px) {
+    .header-wraper h2 {
+        font-size: 15px;
+    }
+}

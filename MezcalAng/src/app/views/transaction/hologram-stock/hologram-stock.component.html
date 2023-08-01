@@ -1,0 +1,174 @@
+<header>
+    <h2 class="page-heading">inventario de hologramas </h2><!-- Hologram Stock -->
+  </header>
+
+<!-- <div class="heading">Hologram Stock
+    <button class="btn btn-primary float-right" (click)="showDialog()"><i class="fa fa-plus-circle"></i> Add</button>
+</div> -->
+
+
+
+<p-table class="custom-table"
+ #dt
+[columns]="selectedStockColumns"
+[scrollable]="true"
+[frozenValue]="cols"
+
+[autoLayout]="true"
+[value]="StockDetails"
+[resizableColumns]="true"
+selectionMode="multiple"
+(onLazyLoad)="loadLazy($event)"
+[lazy]="true"
+[showCurrentPageReport]="true"
+currentPageReportTemplate="ingrese un producto valido: {{totalRecords}}"
+[totalRecords]="totalRecords"
+[rowsPerPageOptions]="[5,25,50,100,totalRecords]"
+[responsive]="true"
+[paginator]="true"
+[customSort]="true"
+sortField=""
+[rows]="5"
+exportFilename="inventario de hologramas"
+sortMode="multiple">
+
+<ng-template pTemplate="caption">
+    <div class="row search-field">
+        <div class="col-md-3">
+ <p-multiSelect [options]="cols" [(ngModel)]="selectedStockColumns"
+        optionLabel="header" selectedItemsLabel="selecciona {0} columnas"
+       defaultLabel="seleccionar columna"></p-multiSelect>
+     </div>
+     <div class="col-md-9">
+  <i class="fa fa-search" style="margin:4px 4px 0 0"></i>
+                <input type="text" pInputText size="30" placeholder="filtro global" (input)="dt.filterGlobal($any($event).target.value, 'contains')" style="width:auto">
+
+                <button type="button" pButton icon="fa fa-file-excel-o" iconPos="left" label="descargar" (click)="dt.exportCSV()"
+                style="margin-left:12px;"></button>
+
+                <button type="button" pButton icon="fa fa-plus-circle"  (click)="showDialog()"  iconPos="left" label="Agregar"
+                style="margin-left:12px;"></button>
+     </div>
+ </div>
+      
+    </ng-template>
+    <ng-template pTemplate="header" let-columns>
+        <tr>
+
+            <th *ngFor="let col of columns" [pSortableColumn]="col.field">
+                {{col.header}}
+                <p-sortIcon [field]="col.field"></p-sortIcon>
+            </th>
+            <th *ngIf="selectedStockColumns.length>0">Accion</th>
+        </tr>
+
+    </ng-template>
+    <ng-template pTemplate="body" let-rowData let-columns="columns">
+        <tr [pSelectableRow]="rowData">
+
+            <td *ngFor="let col of columns;let i=index">
+                {{rowData[col.field]}}
+            </td>
+
+            <td *ngIf="selectedStockColumns.length>0" >
+
+                <button *ngIf="rowData.id == rowData.totalRows" class="btn btn-primary" (click)="editHologramStock(rowData)"><i class="fa fa-pencil"></i></button>
+            </td>
+        </tr>
+    </ng-template>
+    <!-- <ng-template pTemplate="summary">
+        <tr class="text-center" *ngIf="selectedStockColumns.length == 0">
+            <td>
+                no fue encontrato
+               No se encontraron registros
+             </td>
+        </tr>
+    </ng-template> -->
+    <ng-template pTemplate="emptymessage" let-columns>
+        <tr>
+            <td [attr.colspan]="columns.length + 1" class="text-center">
+                no fue encontrato
+                <!-- No se encontraron registros -->
+            </td>
+        </tr>
+    </ng-template>
+</p-table>
+
+<p-dialog [focusOnShow]="false" header="{{modalHeading}}" [(visible)]="display" [modal]="true"
+[transitionOptions]="'0ms'" [style]="{width: '550px'}" styleClass="my-style-class">
+    <div class="row user-form">
+        <form [formGroup]="HologramStockForm" class="modelForm" (submit)="SaveHologramStockDetail()" novalidate>
+        <div>
+            <div class="row">
+
+                <div class="col-sm-4" *ngIf="display">
+                    <!-- <label >Prefix<span style="color: red">*</span>:</label> -->
+                    <label >prefijo<span style="color: red">*</span>:</label>
+                    </div>
+                    <div class="col-sm-8" *ngIf="display">
+                        <p-dropdown class="select-option" [options]="prefixValues" (onChange)="SelectFromNo($any($event))"  panelStyleClass="minWidthOverride" placeholder="seleccionar prefijo" formControlName="Prefix" optionLabel="name"
+                        [ngClass]="{ 'is-invalid': u.Prefix.errors && (u.Prefix.dirty || u.Prefix.touched) }"
+                        [disabled]="disablePrefixDropdown" ></p-dropdown>
+                        <div *ngIf="u.Prefix.invalid && (u.Prefix.dirty || u.Prefix.touched)" class="invalid-feedback">
+                            <div *ngIf="u.Prefix.errors!.required">se requiere prefijo</div>
+                          </div>
+                 </div>
+
+                    <div class="col-sm-4">
+                    <label>del numero<span style="color: red">*</span>:</label>
+                    </div>
+                    <div class="col-sm-8">
+
+                   <input type="text" readonly="true" style="width: 280px;" Numberonly formControlName="FromNumber" class="form-control" />
+                 </div>
+
+                 <div class="col-sm-4">
+                    <label >al numero<span style="color: red">*</span>:</label>
+                    </div>
+                    <div class="col-sm-8">
+                        <input type="text" readonly="true" style="width: 280px;" Numberonly formControlName="ToNumber" class="form-control" />
+                 </div>
+
+                 <!-- (blur)="logValidationErrors()" -->
+                  <div class="col-sm-4">
+                    <label>cantidad<span style="color: red">*</span>:</label>
+                    </div>
+                        <div class="col-sm-8">
+                       <input
+                       [ngClass]="{ 'is-invalid': u.Quantity.errors && (u.Quantity.dirty || u.Quantity.touched) }"
+                        (input)="focusOutFunction()"  style="width: 280px;" formControlName="Quantity" class="form-control" Numberonly/>
+                       <div  *ngIf="u.Quantity==0">
+                        <div style="color: red;">la cantidad debe ser mayor que cero</div>
+                        <!-- Quantity must be greater than zero -->
+                      </div>
+                      <div *ngIf="u.Quantity.invalid && (u.Quantity.dirty || u.Quantity.touched)" class="invalid-feedback">
+                        <div *ngIf="u.Quantity.errors!.required">se requiere cantidad</div>
+                        <!-- quantity is required -->
+                      </div>
+                     </div>
+
+
+                <div class="col-sm-4">
+                    <label >Observaciones</label>
+                    </div>
+                    <div class="col-sm-8">
+                        <input type="text" style="width: 280px;" class="form-control" formControlName="Remarks" ></div>
+
+                <div class="col-sm-4">
+                    <label >estatus:</label>
+                    </div>
+                    <div class="col-sm-8"><input type="checkbox" formControlName="IsActive" checked="true"> </div>
+
+                    <div class="form-group col-sm-12">
+                    <label for="designation" class="text-danger"><b>agregar :</b> (*) en las casillas seleccionadas.</label>
+                  </div>
+            </div>
+        </div>
+
+
+                <div class="col-sm-12 text-center">
+                    <button class="btn btn-primary" [disabled]="(HologramStockForm.invalid)">{{btnText}}</button>
+                </div>
+            </form>
+    </div>
+</p-dialog>

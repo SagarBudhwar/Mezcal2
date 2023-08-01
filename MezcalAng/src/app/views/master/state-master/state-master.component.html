@@ -1,0 +1,62 @@
+<p-table class="custom-table" #dt [columns]="selectedColumns"  [frozenValue]="cols"  [autoLayout]="true" [value]="sales" [resizableColumns]="true" selectionMode="multiple"
+[(selection)]="selectedData" [responsive]="true" [paginator]="true" [rows]="9" sortMode="multiple">
+<ng-template pTemplate="caption">
+  <div class="row search-field">
+    <div class="col-md-3">
+<p-multiSelect [options]="cols" [(ngModel)]="selectedColumns"
+      optionLabel="header" selectedItemsLabel="selecciona {0} columnas" [style]="{minWidth: '200px'}"
+      defaultLabel="Choose Columns"></p-multiSelect>
+</div>
+<div class="col-md-9">
+ <i class="fa fa-search" style="margin:4px 4px 0 0"></i>
+      <input type="text" pInputText placeholder="filtro global"
+        style="width:auto">
+      <button type="button" pButton icon="fa fa-file-excel-o" iconPos="left" label="Download" (click)="dt.exportCSV()"
+        style="margin-left:12px;"></button>
+      <button type="button" pButton icon="fa fa-plus-circle" (click)="showDialog()" iconPos="left" label="Add"
+        style="margin-left:12px;"></button>
+</div>
+</div>
+  
+</ng-template>
+
+<ng-template pTemplate="header" let-columns>
+  <tr>
+    <th *ngFor="let col of columns" pResizableColumn [pSortableColumn]="col.field">
+      {{col.header}}
+      <p-sortIcon [field]="col.field"></p-sortIcon>
+    </th>
+    <th>Action</th>
+  </tr>
+</ng-template>
+<ng-template pTemplate="body" let-rowData let-columns="columns">
+  <tr>
+    <td *ngFor="let col of columns">
+      {{rowData[col.field]}}
+    </td>
+    <td><button type="button" (click)="showDialog()" pButton icon="fa fa-pencil" iconPos="left"></button></td>
+  </tr>
+</ng-template>
+</p-table>
+
+<p-dialog header="Add User" [style]="{'width':'60%'}" [(visible)]="display" [modal]="true" [dismissableMask]="true">
+  <form class="modelForm" [formGroup]="CommonMaster" (ngSubmit)="submit()" novalidate>
+    <div class="row">
+      <div class="form-group col-sm-6">
+        <label for="pwd">State Name:</label>
+        <input type="text" formControlName="StateName" class="form-control">
+        <div *ngIf="f.StateName.invalid && (f.StateName.dirty || f.StateName.touched)" class="invalid-feedback">
+            <div *ngIf="f.StateName.errors?.required">Last Name is required</div>
+            <div *ngIf="f.StateName.errors?.pattern">Only Alphabets</div>
+          </div>
+      </div>
+      <div class="form-group col-sm-6 mt-5">
+        <span for="pwd" class="pr-2">IsActive:</span>
+        <input #status type="checkbox" class="ml-1" formControlName="IsActive">
+      </div>
+    <div class="form-group col-sm-12 text-center">
+    <button type="submit" class="btn btn-primary">Submit</button>
+    </div>
+  </div>
+  </form>
+</p-dialog>

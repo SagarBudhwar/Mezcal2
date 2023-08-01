@@ -1,0 +1,172 @@
+<header>
+  <h2 class="page-heading">desmapeo de producto</h2>
+</header>
+<p-table class="custom-table" #dt [columns]="selectedColumns" class="demapping-table" [rowsPerPageOptions]="[5,25,50,100,totalRecords]"
+[value]="SchemeList" selectionMode="multiple" (onLazyLoad)="loadLazy($event)" [lazy]="true"  [totalRecords]="totalRecords"
+[(selection)]="selectedData" [responsive]="true" [showCurrentPageReport]="true" currentPageReportTemplate="ingrese un producto valido: {{totalRecords}}"
+[paginator]="true" sortField="Id" [rows]="5" sortMode="multiple">
+      <ng-template pTemplate="caption">
+        <div class="row search-field">
+            <div class="col-md-3">
+     <p-multiSelect [options]="cols" [(ngModel)]="selectedColumns"
+          optionLabel="header" selectedItemsLabel="selecciona {0} columnas"
+         defaultLabel="Choose Columns"></p-multiSelect>
+         </div>
+         <div class="col-md-9">
+            <i class="fa fa-search" style="margin:4px 4px 0 0"></i>
+            <input type="text" pInputText size="30" placeholder="filtro global" (input)="dt.filterGlobal($any($event).target.value, 'contains')" style="width:auto">
+         </div>
+     </div>
+        
+          </ng-template>
+  <ng-template pTemplate="header" let-columns>
+          <tr>
+              <th *ngFor="let col of columns" [pSortableColumn]="col.field">
+                  {{col.header}}
+                  <p-sortIcon [field]="col.field"></p-sortIcon>
+              </th>
+
+         <th *ngIf="selectedColumns.length > 0" width="270">Accion</th>
+          </tr>
+      </ng-template>
+      <ng-template pTemplate="body" let-rowData let-columns="columns">
+          <tr [pSelectableRow]="rowData">
+              <td *ngFor="let col of columns">
+                      {{rowData[col.field]}}
+              </td>
+              <td *ngIf="selectedColumns.length > 0" width="270">
+                  <button (click)="showEditDialog(rowData,'Demap')" class="btn btn-primary mt-2 mr-1">desmapear</button>
+                  <!-- Damage -->
+                  <button (click)="showEditDialog(rowData,'Damage')" class="btn btn-primary mt-2 mr-1">dañado</button>
+                  <button (click)="showEditDialog(rowData,'Stolen')" class="btn btn-primary mt-2">robado</button>
+                </td>
+
+          </tr>
+
+      </ng-template>
+      <ng-template pTemplate="summary">
+          <tr class="text-center" *ngIf="selectedColumns.length == 0">
+              <td>
+                  No se encontraron registros
+               </td>
+          </tr>
+      </ng-template>
+      <ng-template pTemplate="emptymessage" let-columns>
+          <tr>
+            <td [attr.colspan]="columns.length + 1" class="text-center">
+               No se encontraron registros
+            </td>
+          </tr>
+        </ng-template>
+
+
+  </p-table>
+
+
+  <p-dialog [focusOnShow]="false" header="{{modalHeading}}" [(visible)]="display" [modal]="true" [transitionOptions]="'0ms'" [style]="{width: '550px'}">
+      <div class="row user-form" (onHidden)="closeMainModal()">
+          <form [formGroup]="DeMappingDetailForm" class="modelForm" (submit)="SaveDamageOrDemapStockDetail()" novalidate>
+          <div class="col-sm-12">
+              <div class="row">
+
+                  <div class="col-sm-4 text-right">nombre de producto<span style="color: red">*</span>:</div>
+                  <div class="col-sm-8 mb-3">
+                      <input type="text" placeholder="nombre de producto"
+                       formControlName="ProductName"
+                     class="form-control">
+                     <div  *ngIf="formErrors.ProductName">
+                      <div style="color: red;">{{formErrors.ProductName}}</div>
+                    </div>
+                  </div>
+
+                  <div class="col-sm-4 text-right">Prefijo<span style="color: red">*</span>:</div>
+                  <div class="col-sm-8 mb-3">
+                      <input type="text" placeholder="prefijo"
+                       formControlName="Prefix"
+                     class="form-control">
+                     <div  *ngIf="formErrors.Prefix">
+                      <div style="color: red;">{{formErrors.Prefix}}</div>
+                    </div>
+                  </div>
+
+                  <div class="col-sm-4 text-right">del numero<span style="color: red">*</span>:</div>
+                  <div class="col-sm-8 mb-3">
+                      <input type="text"  Numberonly  numericType="nonZeroNum"   placeholder="From Number" (input)="valueChange(1)"
+                       formControlName="FromNumber"  class="form-control">
+                       <div *ngIf="f.FromNumber.invalid && (f.FromNumber.dirty || f.FromNumber.touched)" class="redmark">
+                      <!-- <div  *ngIf="formErrors.FromNumber">
+                          <div style="color: red;">{{formErrors.FromNumber}}</div>
+                       </div> -->
+                       <div *ngIf="f.FromNumber.errors!.required" style="color: red;"> Por favor ingrese De No. </div>  <!-- Please enter From No. -->
+                       <div *ngIf="f.FromNumber.errors!.fromNoZero"><label style="color: red;">Desde No. no puede ser cero / en blanco</label></div> <!-- From No. cannot be zero/blank. -->
+                      <div *ngIf="f.FromNumber.errors!.isDigit"><label style="color: red;">Solo se permiten números positivos</label></div> <!-- Only positive numbers are allowed. -->
+                      <div *ngIf="f.FromNumber.errors!.outOfRange"><label style="color: red;">Desde No. fuera de rango</label></div> <!-- From No. out of range. -->
+                      <div *ngIf="f.FromNumber.errors!.fromNoGreater"><label style="color: red;">Desde No. no puede ser mayor que Hasta No</label></div> <!-- From No. cannot be greater than To No. -->
+                      </div>
+                  </div>
+                  <div class="col-sm-4 text-right">al numero <span style="color: red">*</span>:</div>
+                  <div class="col-sm-8 mb-3">
+                      <input type="text"  Numberonly=1  numericType="nonZeroNum"   (input)="valueChange(2)"
+                       formControlName="ToNumber"  placeholder="To Number" class="form-control">
+                       <div *ngIf="f.ToNumber.invalid && (f.ToNumber.dirty || f.ToNumber.touched)" class="redmark">
+                      <!-- <div  *ngIf="formErrors.ToNumber">
+                          <div style="color: red;">{{formErrors.ToNumber}}</div>
+                      </div> -->
+                      <div *ngIf="f.ToNumber.errors!.required" style="color: red;">Por favor ingrese a No.</div><!-- Please enter To No. -->
+                      <div *ngIf="f.ToNumber.errors!.fromNoZero"><label style="color: red;">A No. no puede ser cero / en blanco</label></div><!-- To No. cannot be zero/blank. -->
+                      <div *ngIf="f.ToNumber.errors!.fromNoGreater"><label style="color: red;">To Number no puede ser menor que From Number</label></div><!-- To No. cannot be less than From No. -->
+                      <div *ngIf="f.ToNumber.errors!.outOfRange"><label style="color: red;">A No. fuera de rango</label></div><!-- To No. out of range. -->
+                      </div>
+                  </div>
+
+                  <!-- QHT-41  -   Non positive Count is showing in Quantity. -->
+                  <div class="col-sm-4 text-right">cantidad<span style="color: red">*</span>:</div>
+                  <div class="col-sm-8 mb-3">
+                      <input type="text"  Numberonly   placeholder="cantidad"  formControlName="Quantity" class="form-control">
+                      <div  *ngIf="formErrors.Quantity">
+                          <div style="color: red;">{{formErrors.Quantity}}</div>
+
+                          <div *ngIf="f.Quantity.invalid && (f.Quantity.dirty || f.Quantity.touched)" class="redmark">
+                              <div *ngIf="f.Quantity.errors!.required">
+                                Por favor ingrese la cantidad.     <!--  Please enter quantity. -->
+                              </div>
+                              <div *ngIf="f.Quantity.errors!.qtyZero"><label>La cantidad no puede ser cero / en blanco.</label></div><!-- Quantity cannot be zero/blank.. -->
+                              <div *ngIf="f.Quantity.errors!.outOfRange"><label>Serie fuera de rango</label></div><!-- Series out of range. -->
+
+                            </div>
+                  </div>
+              </div>
+
+              <div class="col-sm-4 text-right" *ngIf="ActionType==='Damage' || ActionType==='Stolen'">
+              <label>Observación<span style="color: red">*</span>:</label>  <!--  Remark. -->
+          </div>
+          <div class="col-sm-8" *ngIf="ActionType==='Damage' || ActionType==='Stolen'">
+              <input type="text"  class="form-control" formControlName="Remarks">
+              <div *ngIf="formErrors.Remarks">
+                  <div style="color: red;">{{formErrors.Remarks}}</div>
+              </div>
+
+          </div>
+
+
+
+
+              <div class="form-group col-sm-12">
+                  <label for="designation" class="text-danger"><b>agregar * en las casillas seleccionadas </b>.</label>
+                </div>
+              </div>
+          </div>
+
+
+                  <div class="col-sm-12 text-center">
+
+                      <button class="btn btn-primary" [disabled]="(DeMappingDetailForm.invalid)">{{btnText}}</button>
+                  </div>
+
+              </form>
+      </div>
+  </p-dialog>
+
+
+
+

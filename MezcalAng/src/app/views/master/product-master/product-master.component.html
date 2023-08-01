@@ -1,0 +1,272 @@
+<header>
+  <!-- Product Master -->
+  <h2 class="page-heading">configurar producto</h2>
+</header>
+<p-table class="custom-table" #dt [columns]="selectedColumns" class="custom-scroll" [autoLayout]="true" [value]="sales" [totalRecords]="totalRecords"
+  [resizableColumns]="true" selectionMode="multiple" [(selection)]="selectedData" [responsive]="true" [paginator]="true" [scrollable]="true" scrollDirection="both"
+  [rows]="8" scrollWidth="100%" sortMode="single" (onLazyLoad)="lazyLoad($event)" [lazy]="true"
+  [showCurrentPageReport]="true" currentPageReportTemplate="ingrese un producto valido: {{totalRecords}}"
+  [rowsPerPageOptions]="[5, 10, 20, 100,totalRecords]" exportFilename="configurar producto">
+  <ng-template pTemplate="caption">
+    <div class="row search-field">
+      <div class="col-md-3">
+ <p-multiSelect [options]="cols" [(ngModel)]="selectedColumns"
+        optionLabel="header" selectedItemsLabel="selecciona {0} columnas" [style]="{minWidth: '200px'}"
+        defaultLabel="Choose Columns"></p-multiSelect>
+ </div>
+ <div class="col-md-9">
+<i class="fa fa-search" style="margin:4px 4px 0 0"></i>
+        <input type="text" pInputText placeholder="filtro global"
+          (input)="dt.filterGlobal($any($event).target.value, 'contains')" style="width:auto">
+        <button type="button" pButton icon="fa fa-file-excel-o" iconPos="left" label="descargar" (click)="exportAsXLSX()"
+          style="margin-left:12px;"></button>
+        <button type="button" pButton icon="fa fa-plus-circle" (click)="showDialog()" iconPos="left" label="agregar"
+          style="margin-left:12px;"></button>
+ </div>
+</div>
+    
+    <div class="row">
+      <div class="col-sm-12">
+        <!-- <p-multiSelect *ngSwitchCase="'sales'" [options]="sales" defaultLabel="All Colors" (onChange)="dt.filter($event.value, col.field, 'in')"></p-multiSelect> -->
+      </div>
+    </div>
+  </ng-template>
+
+  <ng-template pTemplate="header" let-columns>
+    <tr>
+      <th *ngFor="let col of columns" pResizableColumn [pSortableColumn]="col.field" width="200">
+        {{col.header}}
+        <p-sortIcon [field]="col.field"></p-sortIcon>
+      </th>
+      <th width="100">estatus</th>
+      <th width="100">accion</th>
+      <th width="100" *ngIf="selectedColumns.length > 0">imagen</th>
+    </tr>
+  </ng-template>
+  <ng-template pTemplate="body" let-rowData let-columns="columns">
+    <tr>
+      <!-- <td *ngIf="selectedColumns.length > 0"> -->
+        <!-- <img src="{{rowData.imagePath}}" width="90" height="60"
+          onError="this.src='https://sureassure.com/Files/noimage.png'" /> -->
+      <td *ngFor="let col of columns" width="200">
+        {{rowData[col.field]}}
+      </td>
+      <td width="100"><input type="checkbox" disabled [checked]="rowData.isActive" /></td>
+      <td width="100"><button type="button" pButton icon="pi pi-pencil" (click)="editProductData(rowData)" iconPos="left"></button></td>
+      <td width="100"><button type="button" pButton icon="pi pi-image" (click)="viewImage(rowData)" iconPos="left"></button></td>
+    </tr>
+  </ng-template>
+</p-table>
+
+<p-dialog header="{{productHeader}}" [style]="{'width':'60%','height':'75%'}" [(visible)]="display" [modal]="true"
+  [dismissableMask]="true">
+  <form class="modelForm" [formGroup]="productMasterForm" (ngSubmit)="submit()" novalidate>
+    <div class="row">
+      <div class="form-group col-sm-6">
+        <label for="email">nombre del producto<span style="color: red"> *</span>:</label>
+        <input type="text" formControlName="productName"  max="30" placeholder="nombre del producto" class="form-control"
+          [ngClass]="{ 'is-invalid': f.productName.errors && (f.productName.dirty || f.productName.touched) }" />
+        <div *ngIf="f.productName.errors && (f.productName.dirty || f.productName.touched)" class="redmark">
+          <div *ngIf="f.productName.errors.required" style="color: #dc3545;">
+            nombre del producto es requerido
+          </div>
+          <div *ngIf="f.productName.errors.pattern" style="color: #dc3545;">
+            <!-- Please enter valid product. -->
+            por favor ingrese un producto valido
+          </div>
+        </div>
+      </div>
+      <div class="form-group col-sm-6">
+        <!-- <label for="pwd">Brand<span style="color: red"> *</span>:</label> -->
+        <label for="pwd">Marca<span style="color: red"> *</span>:</label>
+        <p-dropdown [options]="brandList" [ngClass]="{'has-error':f.brand.errors}" formControlName="brand"
+          [filter]="true" autoWidth="false" [style]="{'width':'100%'}" appendTo="body" placeholder="Marca"
+          optionLabel="brandName" [showClear]="true"></p-dropdown>
+        <div *ngIf="f.brand.errors && (f.brand.dirty || f.brand.touched)" class="redmark">
+          <div *ngIf="f.brand.errors.required" style="color: #dc3545;">
+            marca es requerida.
+          </div>
+        </div>
+      </div>
+      <div class="form-group col-sm-6">
+        <!-- <label for="pwd">Category<span style="color: red"> *</span>:</label> -->
+        <label for="pwd">Categoria<span style="color: red"> *</span>:</label>
+        <p-dropdown [options]="categoryList" [ngClass]="{'has-error':f.category.errors}" formControlName="category"
+          autoWidth="false" [style]="{'width':'100%'}" appendTo="body" placeholder="Categoria" [filter]="true"
+          optionLabel="productCategory" [showClear]="true"></p-dropdown>
+        <!-- <input type="email" formControlName="category" class="form-control"> -->
+        <div *ngIf="f.category.errors && (f.category.dirty || f.category.touched)" class="redmark">
+          <div *ngIf="f.category.errors.required" style="color: #dc3545;">
+            categoria es requerida.
+          </div>
+        </div>
+      </div>
+      <div class="form-group col-sm-6">
+        <!-- <label for="pwd">Type<span style="color: red"> *</span>:</label> -->
+        <label for="pwd">Clase<span style="color: red"> *</span>:</label>
+        <p-dropdown [options]="typeList" [ngClass]="{'has-error':f.type.errors}" formControlName="type"
+          autoWidth="false" [style]="{'width':'100%'}" appendTo="body" placeholder="Clase" optionLabel="type"
+          [filter]="true" [showClear]="true"></p-dropdown>
+        <!-- <input type="email" formControlName="type" class="form-control"> -->
+        <div *ngIf="f.type.errors && (f.type.dirty || f.type.touched)" class="redmark">
+          <div *ngIf="f.type.errors.required" style="color: #dc3545;">
+            escribir es requerido.
+          </div>
+        </div>
+      </div>
+      <div class="form-group col-sm-6">
+        <!-- <label for="pwd">Species<span style="color: red"> *</span>:</label> -->
+        <label for="pwd">Especie de maguey<span style="color: red"> *</span>:</label>
+        <p-dropdown [options]="speciesList" [ngClass]="{'has-error':f.species.errors}" formControlName="species"
+          [filter]="true" autoWidth="false" [style]="{'width':'100%'}" appendTo="body" placeholder="Especie de maguey"
+          optionLabel="speciesName" [showClear]="true"></p-dropdown>
+        <!-- <input type="text" formControlName="species" class="form-control"> -->
+        <div *ngIf="f.species.errors && (f.species.dirty || f.species.touched)" class="redmark">
+          <div *ngIf="f.species.errors.required" style="color: #dc3545;">
+            especie es requerida
+          </div>
+        </div>
+      </div>
+      <div class="form-group col-sm-6">
+        <!-- <label for="pwd">Production State<span style="color: red"> *</span>:</label> -->
+        <label for="pwd">nombre del estado<span style="color: red"> *</span>:</label>
+        <p-dropdown [options]="stateList" [ngClass]="{'has-error':f.state.errors}" formControlName="state"
+          [filter]="true" autoWidth="false" [style]="{'width':'100%'}" appendTo="body" placeholder="nombre del estado"
+          optionLabel="stateName" [showClear]="true"></p-dropdown>
+        <!-- <input type="text" formControlName="species" class="form-control"> -->
+        <div *ngIf="f.state.errors && (f.state.dirty || f.state.touched)" class="redmark">
+          <div *ngIf="f.state.errors.required" style="color: #dc3545;">
+            estado es requerido.
+          </div>
+        </div>
+      </div>
+      <div class="form-group col-sm-6">
+        <!-- <label for="pwd">Certification No<span style="color: red"> *</span>:</label> -->
+        <label for="pwd">Numero de certificado<span style="color: red"> *</span>:</label>
+        <input type="text"
+          [ngClass]="{ 'is-invalid': f.certificationNo.errors && (f.certificationNo.dirty || f.certificationNo.touched) }"
+          placeholder="Numero de certificado" formControlName="certificationNo" class="form-control">
+        <div *ngIf="f.certificationNo.errors && (f.certificationNo.dirty || f.certificationNo.touched)" class="redmark">
+          <div *ngIf="f.certificationNo.errors.required" style="color: #dc3545;">
+            certificacion no es requerida .
+          </div>
+        </div>
+      </div>
+      <div class="form-group col-sm-6">
+        <!-- <label for="pwd">Ingredients<span style="color: red"> *</span>:</label><br> -->
+        <label for="pwd">Ingredientes<span style="color: red"> *</span>:</label><br>
+        <!-- <input type="text" formControlName="ingredients" class="form-control"> -->
+        <p-chips formControlName="ingredients"
+          [ngClass]="{ 'is-invalid': f.ingredients.errors && (f.ingredients.dirty || f.ingredients.touched) }"
+          [style]="{'width':'100%'}"></p-chips>
+        <div style="color: blue;">favor de presionar enter despues de seleccionar ingredientes</div>
+        <div *ngIf="f.ingredients.errors && (f.ingredients.dirty || f.ingredients.touched)" class="redmark">
+          <div *ngIf="f.ingredients.errors.required" style="color: #dc3545;">
+            ingredientes son requeridos.
+          </div>
+        </div>
+      </div>
+      <div class="form-group col-sm-6">
+        <!-- <label for="pwd">Presentation<span style="color: red"> *</span>:</label>  -->
+        <label for="pwd">Presentacion<span style="color: red"> *</span>:</label>
+        <input type="text" placeholder="Presentacion" formControlName="presentation" class="form-control"
+          [ngClass]="{ 'is-invalid': f.presentation.errors && (f.presentation.dirty || f.presentation.touched) }">
+        <div *ngIf="f.presentation.errors && (f.presentation.dirty || f.presentation.touched)" class="redmark">
+          <div *ngIf="f.presentation.errors.required" style="color: #dc3545;">
+            presentacion es requerida.
+          </div>
+        </div>
+      </div>
+      <div class="form-group col-sm-6">
+        <!-- <label for="pwd">Bottled Lot<span style="color: red"> *</span>:</label> -->
+        <label for="pwd">Lote evasado<span style="color: red"> *</span>:</label>
+        <input type="text" placeholder="Lote evasado." formControlName="bottledLot" class="form-control"
+          [ngClass]="{ 'is-invalid': f.bottledLot.errors && (f.bottledLot.dirty || f.bottledLot.touched) }">
+        <div *ngIf="f.bottledLot.errors && (f.bottledLot.dirty || f.bottledLot.touched)" class="redmark">
+          <div *ngIf="f.bottledLot.errors.required" style="color: #dc3545;">
+            lote es requerido.
+          </div>
+        </div>
+      </div>
+      <div class="form-group col-sm-6">
+        <!-- <label for="pwd">Company Name<span style="color: red"> *</span>:</label> -->
+        <label for="pwd">Comercializado por<span style="color: red"> *</span>:</label>
+        <input type="text" placeholder="Comercializado por" formControlName="companyName" class="form-control"
+          [ngClass]="{ 'is-invalid': f.companyName.errors && (f.companyName.dirty || f.companyName.touched) }">
+        <div *ngIf="f.companyName.errors && (f.companyName.dirty || f.companyName.touched)" class="redmark">
+          <div *ngIf="f.companyName.errors.required" style="color: #dc3545;">
+            nombre de la compania es requerida.
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-sm-2">
+          <label for="pwd">Atributos<span style="color: red">*</span>:</label><br>
+          <!-- <label for="pwd">Attributes<span style="color: red"> *</span>:</label><br> -->
+        </div>
+      </div>
+      <div class="row" >
+        <br>
+        <div class="col-sm-6">
+          <!-- <input type="radio" id="html" name="attributes" formControlName="attributes" value="preservation">&nbsp; -->
+          <input #checkboxes type="checkbox" value="Preservacion de la Diversidad Biológica de Magueyes" id='preservation' name='preservation'
+          (change)="onCheckChange($event)" [checked]="(checkCheckbox==true) && (preservationChecked==true)"/>
+          <label for="html">Preservacion de la Diversidad Biológica de Magueyes</label>
+        </div>
+        <div class="col-sm-6">
+          <!-- <input type="radio" id="css" name="attributes" formControlName="attributes" value="earthNdWater">&nbsp; -->
+          <input #checkboxes type="checkbox" value="Conservacion de Suelo y Agua" id='earthNdWater' name='earthNdWater'
+          (change)="onCheckChange($event)" [checked]="(checkCheckbox==true) && (earthNdWaterChecked==true)"/>
+          <label for="css">Conservacion de Suelo y Agua</label>
+        </div>
+        <div class="col-sm-6">
+          <!-- <input type="radio" id="javascript" name="attributes" formControlName="attributes"
+            value="traditionalWay">&nbsp; -->
+            <input #checkboxes type="checkbox" value='Manejo Tradicional del Maguey' id='traditionalWay' name="traditionalWay"
+            (change)="onCheckChange($event)" [checked]="(checkCheckbox==true) && (traditionalWayChecked==true)"/>
+          <label for="javascript">Manejo Tradicional del Maguey</label>
+        </div>
+        <div class="col-sm-6">
+          <!-- <input type="radio" id="css" name="attributes" formControlName="attributes" value="controlnatural">&nbsp; -->
+          <input #checkboxes type="checkbox" value='Aprovechamiento Controlado de Magueyes Silvestres' id='controlnatural' name='controlnatural'
+          (change)="onCheckChange($event)" [checked]="(checkCheckbox==true) && (controlnaturalChecked==true)"/>
+          <label for="css">Aprovechamiento Controlado de Magueyes Silvestres</label>
+        </div>
+        <div class="col-sm-6">
+          <!-- <input type="radio" id="javascript" name="attributes" formControlName="attributes" value="plague">&nbsp; -->
+          <input #checkboxes type="checkbox" value='Manejo intergado de Plagas y Enfermedades' id='plague' name='plague'
+          (change)="onCheckChange($event)" [checked]="(checkCheckbox==true) && (plagueChecked==true)"/>
+          <label for="javascript">Manejo intergado de Plagas y Enfermedades</label>
+        </div>
+      </div>
+      <!-- </div> -->
+      <!-- <div class="form-group col-sm-6">
+      <label for="pwd">Production State:</label>
+      <input type="text" placeholder="Production State" formControlName="productionState" class="form-control"
+      [ngClass]="{ 'is-invalid': f.productionState.errors && (f.productionState.dirty || f.productionState.touched) }">
+      <div *ngIf="f.productionState.errors && (f.productionState.dirty || f.productionState.touched)" class="redmark">
+        <div *ngIf="f.productionState.errors.required" style="color: #dc3545;">
+          Production State is required.
+        </div>
+      </div>
+    </div> -->
+      <div class="form-group col-sm-6 mt-5">
+        <label for="files" class="btn">Elija el archivo</label>
+        <input type="file" style="width: 280px;" class="form-control ng-pristine ng-valid ng-touched"
+          formControlName="ImageBase64" accept="image/x-png,image/jpeg" (change)="onImageUpload($event)" name="Image">
+      </div>
+      <div *ngIf="isImageAvailable" class="form-group col-sm-6 mt-5">
+        <img src="{{ imageToShow }}" width="180" height="200"
+          onError="this.src='https://sureassure.com/Files/noimage.png'" />
+      </div>
+      <div class="form-group col-sm-6 mt-5">
+        <span for="pwd" class="pr-2">estatus:</span>
+        <input #status type="checkbox" class="ml-1" formControlName="IsActive">
+      </div>
+      <div>agregar : (<span class="redmark" style="color: red;">*</span>) en las casillas seleccionadas.</div>
+      <div class="form-group col-sm-12 text-center">
+        <button type="submit" class="btn btn-primary">enviar</button>
+      </div>
+    </div>
+  </form>
+</p-dialog>

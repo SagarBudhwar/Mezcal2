@@ -1,0 +1,55 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30907.101
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Mezcal", "Mezcal\Mezcal.csproj", "{AFE14A52-88E1-40C7-BCDE-75523F87E4FD}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Mezcal.Data", "Mezcal.Data\Mezcal.Data.csproj", "{210BF7E3-5510-46DA-AB1A-A638FF57F804}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Mezcal.Dtos", "Mezcal.Dtos\Mezcal.Dtos.csproj", "{C95BB9EE-9952-4ADA-95E6-24F7D56EA2E9}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Mezcal.Helpers", "Mezcal.Helpers\Mezcal.Helpers.csproj", "{DDE40C16-F08E-48A2-8B67-C0693007BA01}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Mezcal.IRepository", "Mezcals.IRepository\Mezcal.IRepository.csproj", "{E59F7FD7-3F05-4141-99E7-C192CDAD2063}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Mezcal.Models", "Mezcal.Models\Mezcal.Models.csproj", "{BB79C149-EC0D-4794-8689-485173C00FBB}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{AFE14A52-88E1-40C7-BCDE-75523F87E4FD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AFE14A52-88E1-40C7-BCDE-75523F87E4FD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AFE14A52-88E1-40C7-BCDE-75523F87E4FD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AFE14A52-88E1-40C7-BCDE-75523F87E4FD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{210BF7E3-5510-46DA-AB1A-A638FF57F804}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{210BF7E3-5510-46DA-AB1A-A638FF57F804}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{210BF7E3-5510-46DA-AB1A-A638FF57F804}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{210BF7E3-5510-46DA-AB1A-A638FF57F804}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C95BB9EE-9952-4ADA-95E6-24F7D56EA2E9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C95BB9EE-9952-4ADA-95E6-24F7D56EA2E9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C95BB9EE-9952-4ADA-95E6-24F7D56EA2E9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C95BB9EE-9952-4ADA-95E6-24F7D56EA2E9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DDE40C16-F08E-48A2-8B67-C0693007BA01}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DDE40C16-F08E-48A2-8B67-C0693007BA01}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DDE40C16-F08E-48A2-8B67-C0693007BA01}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DDE40C16-F08E-48A2-8B67-C0693007BA01}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E59F7FD7-3F05-4141-99E7-C192CDAD2063}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E59F7FD7-3F05-4141-99E7-C192CDAD2063}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E59F7FD7-3F05-4141-99E7-C192CDAD2063}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E59F7FD7-3F05-4141-99E7-C192CDAD2063}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BB79C149-EC0D-4794-8689-485173C00FBB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BB79C149-EC0D-4794-8689-485173C00FBB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BB79C149-EC0D-4794-8689-485173C00FBB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BB79C149-EC0D-4794-8689-485173C00FBB}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {A187DACC-7B96-4E71-9327-14CEAE30830D}
+	EndGlobalSection
+EndGlobal

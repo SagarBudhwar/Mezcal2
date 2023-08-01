@@ -1,0 +1,301 @@
+<!-- <div class="heading">Mapping
+  <button class="btn btn-primary float-right" (click)="showDialog()"><i class="fa fa-plus-circle"></i> Add Mapping</button>
+</div> -->
+<header>
+  <!-- Product Mapping -->
+  <h2 class="page-heading">mapeo de producto</h2>
+</header>
+
+<!--QHT-47 -- Edit Icon(Action field) Should be remove While unchecked all column filter. -->
+<p-table class="custom-table" #dt2 [columns]="selectedColumns" exportFilename="mapeo de producto"  [frozenValue]="cols" [autoLayout]="true"
+[value]="MappingList" [resizableColumns]="true" [style]="{width:'100%'}" selectionMode="multiple" (onLazyLoad)="loadLazy($event)" [lazy]="true"  [totalRecords]="totalRecords"
+[(selection)]="selectedData" [responsive]="true"   [showCurrentPageReport]="true" currentPageReportTemplate="ingrese un producto valido: {{totalRecords}}"
+[rowsPerPageOptions]="[5, 10, 20, totalRecords]" [paginator]="true" sortField="Id" [rows]="5" sortMode="multiple" >
+      <ng-template pTemplate="caption">
+        <div class="row search-field">
+          <div class="col-md-3">
+          <p-multiSelect [options]="cols" [(ngModel)]="selectedColumns"
+          optionLabel="header" selectedItemsLabel="selecciona {0} columnas"
+         defaultLabel="Choose Columns"></p-multiSelect>
+        </div>
+              <div class="col-md-9">
+                  <i class="fa fa-search" style="margin:4px 4px 0 0"></i>
+                  <input type="text" pInputText size="30" placeholder="filtro global" (input)="dt2.filterGlobal($any($event).target.value, 'contains')" style="width:auto">
+
+                  <button type="button" pButton icon="fa fa-file-excel-o" iconPos="left" label="descargar" (click)="dt2.exportCSV()"
+                  style="margin-left:12px;"></button>
+
+                  <button type="button" pButton icon="fa fa-plus-circle"  (click)="showDialog()"  iconPos="left" label="agregar"
+                  style="margin-left:12px;"></button>
+              </div>
+            </div>
+          </ng-template>
+         <ng-template pTemplate="header" let-columns>
+          <tr>
+              <th *ngFor="let col of columns" [pSortableColumn]="col.field">
+                  {{col.header}}
+                  <p-sortIcon [field]="col.field"></p-sortIcon>
+              </th>
+          </tr>
+      </ng-template>
+      <ng-template pTemplate="body" let-rowData let-columns="columns">
+          <tr [pSelectableRow]="rowData">
+              <td *ngFor="let col of columns">
+                      {{rowData[col.field]}}
+
+              </td>
+          </tr>
+      </ng-template>
+      <!-- <ng-template pTemplate="summary">
+        <tr class="text-center" *ngIf="selectedColumns.length == 0">
+            <td>
+                No se encontraron registros
+             </td>
+        </tr>
+    </ng-template> -->
+      <ng-template pTemplate="emptymessage" let-columns>
+          <tr>
+            <td [attr.colspan]="columns.length + 1" class="text-center">
+               No se encontraron registros
+            </td>
+          </tr>
+        </ng-template>
+
+  </p-table>
+
+
+  <p-dialog [focusOnShow]="false" header="{{modalHeading}}" [(visible)]="display" [modal]="true" [transitionOptions]="'0ms'" [style]="{width: '580px'}">
+      <div class="row user-form" (onHidden)="closeMainModal()" blockScroll="true" modal="true" draggable="false">
+          <form [formGroup]="MappingDetailForm" class="modelForm" (submit)="SaveMapping()" novalidate>
+          <div class="col-sm-12">
+              <div class="row">
+                <!-- Product Name -->
+                  <div class="col-sm-4 text-right">nombre de producto<span style="color: red">*</span>:</div>
+                  <div class="col-sm-5 mb-3">
+                      <!-- <p-dropdown [options]="prodcutNameListForDdl"  formControlName="ProductId" autoWidth="false" [style]="{'width':'233px'}"
+                      appendTo="body" filter="true" placeholder="Select Product Name"
+                     optionLabel="productName" [showClear]="true" (blur)="logValidationErrors()" ></p-dropdown> -->
+                     <input type="text"style="width: 225px;"  placeholder="nombre de producto"   formControlName="ProductName"
+                    class="form-control">
+                     <div  *ngIf="formErrors.ProductName">
+                      <div style="color: red;">{{formErrors.ProductName}}</div>
+                    </div>
+                  </div>
+                  <div class="col-sm-2" style="margin-left:0; padding-left:0;">
+                  <span class="input-group-btn" >
+                    <button style="margin-top: 0px;height: 31px;"
+                      type="button"
+                      (click)="openProductList()"
+                      class="btn btn-primary"
+                    >
+                      <i class="fa fa-plus"></i>
+                    </button>  </span>
+                  </div>
+
+
+                  <!-- <div class="col-sm-4 form-group text-right">Prefix<span style="color: red">*</span>:</div>
+                  <div class="col-sm-8 mb-3">
+                      <input type="text"    placeholder="Prefijo" style="width: 261px;"   formControlName="Prefix" class="form-control">
+                      <div  *ngIf="formErrors.Quantity">
+                          <div style="color: red;">{{formErrors.Quantity}}</div>
+                  </div>
+              </div> -->
+
+                  <!-- From Number -->
+                  <div class="col-sm-4 text-right">del numero<span style="color: red">*</span>:</div>
+                  <div class="col-sm-8 mb-3">
+                      <input type="text" placeholder="del numero" Numberonly style="width: 261px;"   (input)="valueChange(1)"
+                        numericType="number" Numericonly  numericType="nonZeroNum"  formControlName="FromNumber"
+                        [ngClass]="{ 'is-invalid': f.FromNumber.errors && (f.FromNumber.dirty || f.FromNumber.touched) }"
+                      class="form-control">
+                      <div *ngIf="f.FromNumber.invalid && (f.FromNumber.dirty || f.FromNumber.touched)" class="redmark">
+                        <!-- <div  *ngIf="formErrors.FromNumber">
+                            <div style="color: red;">{{formErrors.FromNumber}}</div>
+                         </div> -->
+                         <div *ngIf="f.FromNumber.errors!.required" style="color: red;"> Por favor ingrese De No. </div>  <!-- Please enter From No. -->
+                         <div *ngIf="f.FromNumber.errors!.fromNoZero"><label style="color: red;">Desde No. no puede ser cero / en blanco</label></div> <!-- From No. cannot be zero/blank. -->
+                        <div *ngIf="f.FromNumber.errors!.isDigit"><label style="color: red;">Solo se permiten números positivos</label></div> <!-- Only positive numbers are allowed. -->
+                        <div *ngIf="f.FromNumber.errors!.outOfRange"><label style="color: red;">Desde No. fuera de rango</label></div> <!-- From No. out of range. -->
+                        <div *ngIf="f.FromNumber.errors!.fromNoGreater"><label style="color: red;">Desde No. no puede ser mayor que Hasta No</label></div> <!-- From No. cannot be greater than To No. -->
+                        </div>
+                  </div>
+                  <div class="col-sm-4 form-group text-right">al numero<span style="color: red">*</span>:</div>
+                  <div class="col-sm-8 mb-3">
+                      <input type="text" Numberonly  numericType="number"  (input)="valueChange(2)"
+                      [ngClass]="{ 'is-invalid': f.ToNumber.errors && (f.ToNumber.dirty || f.ToNumber.touched) }"
+                      formControlName="ToNumber" Numericonly  numericType="nonZeroNum"   style="width: 261px;"  placeholder="al numero" class="form-control">
+                       <div *ngIf="f.ToNumber.invalid && (f.ToNumber.dirty || f.ToNumber.touched)" class="redmark">
+                        <!-- <div  *ngIf="formErrors.ToNumber">
+                            <div style="color: red;">{{formErrors.ToNumber}}</div>
+                        </div> -->
+                        <div *ngIf="f.ToNumber.errors!.required" style="color: red;">Por favor ingrese a No.</div><!-- Please enter To No. -->
+                        <div *ngIf="f.ToNumber.errors!.fromNoZero"><label style="color: red;">A No. no puede ser cero / en blanco</label></div><!-- To No. cannot be zero/blank. -->
+                        <div *ngIf="f.ToNumber.errors!.fromNoGreater"><label style="color: red;">To Number no puede ser menor que From Number</label></div><!-- To No. cannot be less than From No. -->
+                        <div *ngIf="f.ToNumber.errors!.outOfRange"><label style="color: red;">A No. fuera de rango</label></div><!-- To No. out of range. -->
+                        </div>
+                  </div>
+                  <div class="col-sm-4 form-group text-right">cantidad<span style="color: red">*</span>:</div>
+                  <div class="col-sm-8 mb-3">
+                      <input type="text"  Numberonly  numericType="number"  placeholder="cantidad" style="width: 261px;"   formControlName="Quantity" class="form-control">
+                      <div  *ngIf="formErrors.Quantity">
+                          <div style="color: red;">{{formErrors.Quantity}}</div>
+                  </div>
+              </div>
+              <div class="form-group col-sm-12 text-center">
+
+                  <div for="designation" class="text-danger" style="margin-left: 71px;">
+                    <b>agregar * en las casillas seleccionadas.</b></div>
+
+               </div>
+              </div>
+          </div>
+
+
+                  <div class="col-sm-12 " style="margin-left: 20px;">
+                    <span class="mr-10" style="margin-right: 12px;position: relative;top: 10px;"><b> Stock seleccionado : {{ minFromNo }} - {{ maxToNo }} </b></span>  <!-- Selected Stock -->
+                      <button
+                      [disabled]="isAvailableDisabled"
+                      (click)="openAvailableStock()"
+                      type="button"
+                      class="btn btn-primary btn-sm"
+                      data-toggle="modal"
+                      data-target="#myModal3"
+                    >
+                    <!-- Available Stock -->
+                    hologramas disponibles
+                      </button
+                    >&nbsp;
+                      <button class="btn btn-primary" [disabled]="(MappingDetailForm.invalid)">{{btnText}}</button>
+                  </div>
+              </form>
+      </div>
+  </p-dialog>
+
+  <!-- header=" Available Stock " -->
+  <p-dialog
+[focusOnShow]="false"
+header=" hologramas disponibles"
+[(visible)]="displayAvailableStock"
+[modal]="true"
+[transitionOptions]="'0ms'"
+[style]="{ width: '60%' }"
+>
+
+     <p-table class="custom-table" #dt1 [columns]="selectedColumns1" (onLazyLoad)="loadLazy1($event)" [scrollable]="true" [frozenValue]="cols1"
+     [totalRecords]="totalRecords1" [style]="{width:'100%'}" [autoLayout]="true" [value]="AvailableStockList" [lazy]="true"
+     [resizableColumns]="true" selectionMode="multiple" [responsive]="true"  [rowsPerPageOptions]="[5, 10, 20, totalRecords1]"
+     [paginator]="true" sortField="" [rows]="5" sortMode="multiple" [showCurrentPageReport]="true" 
+     >
+    
+     <ng-template pTemplate="caption">
+      <div class="search-field2">
+        <i class="fa fa-search" style="margin: 4px 4px 0 0;"></i>
+        <input
+          type="text"
+          pInputText
+          size="30"
+          placeholder="filtro global"
+          (input)="dt1.filterGlobal($any($event).target.value, 'contains')"
+          style="width: auto;"
+        />
+      
+      </div>
+    </ng-template>
+     <ng-template pTemplate="colgroup" let-columns>
+      <colgroup>
+          <col *ngFor="let col of columns" style="width:170px">
+      </colgroup>
+  </ng-template>
+     <ng-template pTemplate="header" let-columns>
+       <tr>
+         <th *ngFor="let col of columns" pResizableColumn [pSortableColumn]="col.field">
+           {{col.header}}
+           <p-sortIcon [field]="col.field"></p-sortIcon>
+         </th>
+         <th>Accion</th>
+       </tr>
+     </ng-template>
+     <ng-template pTemplate="body" let-rowData let-columns="columns">
+       <tr>
+         <td *ngFor="let col of columns">
+           {{rowData[col.field]}}
+         </td>
+         <td>
+          <button (click)="selectAvailableStock(rowData)" class="btn btn-primary mt-2">Seleccione</button> <!-- Select -->
+        </td>
+       </tr>
+     </ng-template>
+     <ng-template pTemplate="emptymessage" let-columns>
+      <tr>
+        <td [attr.colspan]="columns.length + 1" class="text-center">
+           No se encontraron registros
+        </td>
+      </tr>
+    </ng-template>
+   </p-table>
+</p-dialog>
+
+
+<!--QHT-39 --Previous searched data is not erasing  when click on cross icon. -->
+<!--QHT-45 --Search filter is not working While Search with Not present  in Product list. -->
+
+<p-dialog
+[focusOnShow]="false"
+header="Lista de productos"
+(onHide)="close()"
+class="lista-table"
+[(visible)]="displayProductsList"
+[modal]="true"
+[transitionOptions]="'0ms'"
+[style]="{ width: '90%' }">
+
+<p-table class="custom-table" #dt3 [columns]="selectedColumns2" [scrollable]="true" scrollHeight="250px" (onLazyLoad)="loadLazy2($event)" 
+[totalRecords]="totalRecords2" [style]="{width:'100%'}" [value]="ProductsList" [lazy]="true"
+selectionMode="multiple" [responsive]="true" [rowsPerPageOptions]="[5, 10, 20, totalRecords2]"
+[paginator]="true" sortField="" [rows]="5" sortMode="single" >
+
+<ng-template pTemplate="caption">
+  <div class="row search-field">
+    <div class="col-md-3">  
+<p-multiSelect [options]="cols2" [(ngModel)]="selectedColumns2"
+optionLabel="header" selectedItemsLabel="selecciona {0} columnas"
+defaultLabel="Choose Columns"></p-multiSelect>
+</div>
+    <div class="col-md-9">
+        <i class="fa fa-search" style="margin:4px 4px 0 0"></i>
+        <input type="text" [value]="clearValue" pInputText size="30" placeholder="filtro global" (input)="dt3.filterGlobal($any($event).target.value, 'contains')" style="width:auto">
+    </div>
+    </div>
+</ng-template>
+
+<ng-template pTemplate="header" let-columns>
+<tr>
+  <th *ngFor="let col of columns" [pSortableColumn]="col.field" style="min-width:180px">
+    {{col.header}}
+    <p-sortIcon [field]="col.field"></p-sortIcon>
+  </th>
+  <th style="min-width:120px">Accion</th>
+</tr>
+</ng-template>
+
+<ng-template pTemplate="body" let-rowData let-columns="columns">
+<tr>
+  <td *ngFor="let col of columns" style="min-width:180px;">
+    {{rowData[col.field]}}
+  </td>
+  <td style="min-width:120px;">
+   <button (click)="selectProduct(rowData)" class="btn btn-primary mt-2">Seleccione</button>
+ </td>
+</tr>
+</ng-template>
+
+<ng-template pTemplate="emptymessage" let-columns>
+<tr>
+  <td [attr.colspan]="columns.length + 1" class="text-center">
+    No se encontraron registros
+  </td>
+</tr>
+</ng-template>
+
+</p-table>
+</p-dialog>

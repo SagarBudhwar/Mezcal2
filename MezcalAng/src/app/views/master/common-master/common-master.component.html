@@ -1,0 +1,370 @@
+<header>
+    <!-- Common Master -->
+    <h2 class="page-heading">configuracion basica</h2>
+</header>
+
+<p-tabView (onChange)="handleChangeBrand($event)">
+    <!-- Brand Master -->
+    <p-tabPanel header="configuracion de la marca ">
+        <p-table class="custom-table" #dt1 [columns]="selectedBrandColumn" [frozenValue]="selectedBrandColumn"
+            [autoLayout]="true" [value]="salesBrand" [resizableColumns]="true" selectionMode="multiple"
+            [(selection)]="selectedData" [responsive]="true" (onLazyLoad)="lazyLoadBrand($event)" sortField=""
+            [lazy]="true" [paginator]="true" [totalRecords]="totalRecordsBrand" [rows]="5" sortMode="single" [rowsPerPageOptions]="[5, 10, 20, 100,totalRecordsBrand]"
+            [showCurrentPageReport]="true" currentPageReportTemplate="ingrese un producto valido: {{totalRecordsBrand}}"  exportFilename="configuracion de la marca">
+            <ng-template pTemplate="caption">
+                <div class="row search-field">
+                    <div class="col-md-3">  
+                        <p-multiSelect [options]="selectedBrandColumn" [(ngModel)]="selectedBrandColumn"
+                        optionLabel="header"
+                        selectedItemsLabel="selecciona {0} columnas" [style]="{minWidth: '200px'}"
+                        defaultLabel="Choose Columns"></p-multiSelect>
+                </div>
+                    <div class="col-md-9">
+                        <i class="fa fa-search" style="margin:4px 4px 0 0"></i>
+                        <input type="text" pInputText placeholder="filtro global" style="width:auto"
+                            (input)="dt1.filterGlobal($any($event).target.value, 'contains')">
+                        <button type="button" pButton icon="fa fa-file-excel-o" iconPos="left" label="descargar"
+                            (click)="dt1.exportCSV()" style="margin-left:12px;"></button>
+                        <button type="button" pButton icon="fa fa-plus-circle" (click)="showBrandDialog()"
+                            iconPos="left" label="agregar" style="margin-left:12px;"></button>
+                    </div>
+                    </div>                
+            </ng-template>
+            <ng-template pTemplate="header" let-columns>
+                <tr>
+                    <th *ngFor="let col of columns" pResizableColumn [pSortableColumn]="col.field">
+                        {{col.header}}
+                        <p-sortIcon [field]="col.field"></p-sortIcon>
+                    </th>
+                    <th>estatus</th>
+                    <th>Accion</th>
+                </tr>
+            </ng-template>
+            <ng-template pTemplate="body" let-rowData let-columns="columns">
+                <tr>
+                    <td *ngFor="let col of columns">
+                        {{rowData[col.field]}}
+                    </td>
+                    <td><input type="checkbox" disabled [checked]="rowData.isActive" /></td>
+                    <td><button type="button" (click)="showBrandDialogEdit(rowData)" pButton icon="fa fa-pencil"
+                            iconPos="left"></button></td>
+                </tr>
+            </ng-template>
+        </p-table>
+
+        <p-dialog header="{{modalBrandHeader}}" [style]="{'width':'60%'}" [(visible)]="displayBrand" [modal]="true"
+            [dismissableMask]="true">
+            <form class="modelForm" [formGroup]="BrandMaster" (ngSubmit)="submitBrand()" novalidate>
+                <div class="row">
+                    <div class="form-group col-sm-6">
+                        <!-- <label for="pwd">Brand Name<span style="color: red"> *</span> :</label> -->
+                        <label for="pwd">marca<span style="color: red"> *</span> :</label>
+                        <input type="text" formControlName="BrandName" class="form-control">
+                        <div *ngIf="b.BrandName.invalid && b.BrandName.dirty || b.BrandName.touched"
+                            class="invalid-feedback">
+                            <div *ngIf="b.BrandName.errors?.required">marca es requerida</div>
+                            <div *ngIf="b.BrandName.errors?.pattern">Solo letras</div>
+                        </div>
+                    </div>
+                    <div class="form-group col-sm-6 mt-5">
+                        <span for="pwd" class="pr-2">estatus:</span>
+                        <input #status type="checkbox" class="ml-1" formControlName="IsActive">
+                    </div>
+                    <div class="form-group col-sm-12 text-center">
+                        <button type="submit" [disabled]="BrandMaster.invalid" class="btn btn-primary">enviar</button>
+                    </div>
+                </div>
+            </form>
+        </p-dialog>
+    </p-tabPanel>
+    <!-- Category Master -->
+    <p-tabPanel header="configuracion de categoria">
+        <p-table class="custom-table" #dt2 [columns]="selectedCategoryColumn" [frozenValue]="selectedCategoryColumn"
+            [autoLayout]="true" [value]="salesCategory" [resizableColumns]="true" selectionMode="multiple"
+            [(selection)]="selectedData" [responsive]="true" (onLazyLoad)="lazyLoadCategory($event)" sortField=""
+            [lazy]="true" [paginator]="true" [paginator]="true" [totalRecords]="totalRecordsCategory" [rows]="5" [rowsPerPageOptions]="[5, 10, 20, 100,totalRecordsCategory]"
+            sortMode="single" [showCurrentPageReport]="true" currentPageReportTemplate="ingrese un producto valido: {{totalRecordsCategory}}"  exportFilename="configuracion de categoria">
+            <ng-template pTemplate="caption">
+                <div class="row search-field">
+                    <div class="col-md-3">
+              <p-multiSelect [options]="selectedCategoryColumn" [(ngModel)]="selectedCategoryColumn"
+                        optionLabel="header"
+                        selectedItemsLabel="selecciona {0} columnas" [style]="{minWidth: '200px'}"
+                        defaultLabel="Choose Columns"></p-multiSelect>
+                 </div>
+                 <div class="col-md-9">
+             <i class="fa fa-search" style="margin:4px 4px 0 0"></i>
+                        <input type="text" pInputText placeholder="filtro global" style="width:auto"
+                            (input)="dt2.filterGlobal($any($event).target.value, 'contains')">
+                        <button type="button" pButton icon="fa fa-file-excel-o" iconPos="left" label="descargar"
+                            (click)="dt2.exportCSV()" style="margin-left:12px;"></button>
+                        <button type="button" pButton icon="fa fa-plus-circle" (click)="showCategoryDialog()"
+                            iconPos="left" label="agregar" style="margin-left:12px;"></button>
+                 </div>
+             </div>               
+            </ng-template>
+            <ng-template pTemplate="header" let-columns>
+                <tr>
+                    <th *ngFor="let col of columns" pResizableColumn [pSortableColumn]="col.field">
+                        {{col.header}}
+                        <p-sortIcon [field]="col.field"></p-sortIcon>
+                    </th>
+                    <th>estatus</th>
+                    <th>acción</th>
+                </tr>
+            </ng-template>
+            <ng-template pTemplate="body" let-rowData let-columns="columns">
+                <tr>
+                    <td *ngFor="let col of columns">
+                        {{rowData[col.field]}}
+                    </td>
+                    <td><input type="checkbox" disabled [checked]="rowData.isActive" /></td>
+                    <td><button type="button" (click)="showCategoryDialogEdit(rowData)" pButton icon="fa fa-pencil"
+                            iconPos="left"></button></td>
+                </tr>
+            </ng-template>
+        </p-table>
+
+        <p-dialog header="{{modalCategoryHeader}}" [style]="{'width':'60%'}" [(visible)]="displayCategory"
+            [modal]="true" [dismissableMask]="true">
+            <form class="modelForm" [formGroup]="CategoryMaster" (ngSubmit)="submitCategory()" novalidate>
+                <div class="row">
+                    <div class="form-group col-sm-6">
+                        <label for="pwd">categoria<span style="color: red"> *</span> :</label>
+                        <input type="text" formControlName="ProductCategory" class="form-control">
+                        <div *ngIf="c.ProductCategory.invalid && (c.ProductCategory.dirty || c.ProductCategory.touched)"
+                            class="invalid-feedback">
+                            <div *ngIf="c.ProductCategory.errors?.required">categoria es requerida</div>
+                            <div *ngIf="c.ProductCategory.errors?.pattern">Solo letras</div>
+                        </div>
+                    </div>
+                    <div class="form-group col-sm-6 mt-5">
+                        <span for="pwd" class="pr-2">estatus:</span>
+                        <input #status type="checkbox" class="ml-1" formControlName="IsActive">
+                    </div>
+                    <div class="form-group col-sm-12 text-center">
+                        <button type="submit" [disabled]="CategoryMaster.invalid" class="btn btn-primary">enviar</button>
+                    </div>
+                </div>
+            </form>
+        </p-dialog>
+    </p-tabPanel>
+    <p-tabPanel header="configuracion de clase">
+        <p-table class="custom-table" #dt3 [columns]="selectedTypeColumn" [frozenValue]="cols" [autoLayout]="true"
+            [value]="salesType" [resizableColumns]="true" selectionMode="multiple" [(selection)]="selectedData"
+            [responsive]="true" (onLazyLoad)="lazyLoadType($event)" sortField="" [lazy]="true" [paginator]="true"
+            [paginator]="true" [totalRecords]="totalRecordsType" [rows]="5" sortMode="single" [rowsPerPageOptions]="[5, 10, 20, 100,totalRecordsType]"
+            [showCurrentPageReport]="true" currentPageReportTemplate="ingrese un producto valido: {{totalRecordsType}}"  exportFilename="configuracion de clase">
+            <ng-template pTemplate="caption">
+                <div class="row search-field">
+                    <div class="col-md-3">
+             <p-multiSelect [options]="selectedTypeColumn" [(ngModel)]="selectedTypeColumn"
+                        optionLabel="header"
+                        selectedItemsLabel="selecciona {0} columnas" [style]="{minWidth: '200px'}"
+                        defaultLabel="Choose Columns"></p-multiSelect>
+                 </div>
+                 <div class="col-md-9">
+             <i class="fa fa-search" style="margin:4px 4px 0 0"></i>
+                        <input type="text" pInputText placeholder="filtro global" style="width:auto"
+                            (input)="dt3.filterGlobal($any($event).target.value, 'contains')">
+                        <button type="button" pButton icon="fa fa-file-excel-o" iconPos="left" label="descargar"
+                            (click)="dt3.exportCSV()" style="margin-left:12px;"></button>
+                        <button type="button" pButton icon="fa fa-plus-circle" (click)="showTypeDialog()" iconPos="left"
+                            label="agregar" style="margin-left:12px;"></button>
+                 </div>
+             </div>
+               
+            </ng-template>
+            <ng-template pTemplate="header" let-columns>
+                <tr>
+                    <th *ngFor="let col of columns" pResizableColumn [pSortableColumn]="col.field">
+                        {{col.header}}
+                        <p-sortIcon [field]="col.field"></p-sortIcon>
+                    </th>
+                    <th>estatus</th>
+                    <th>acción</th>
+                </tr>
+            </ng-template>
+            <ng-template pTemplate="body" let-rowData let-columns="columns">
+                <tr>
+                    <td *ngFor="let col of columns">
+                        {{rowData[col.field]}}
+                    </td>
+                    <td><input type="checkbox" disabled [checked]="rowData.isActive" /></td>
+                    <td><button type="button" (click)="showTypeDialogEdit(rowData)" pButton icon="fa fa-pencil"
+                            iconPos="left"></button></td>
+                </tr>
+            </ng-template>
+        </p-table>
+
+        <p-dialog header="{{modalTypeHeader}}" [style]="{'width':'60%'}" [(visible)]="displayType" [modal]="true"
+            [dismissableMask]="true">
+            <form class="modelForm" [formGroup]="TypeMaster" (ngSubmit)="submitType()" novalidate>
+                <div class="row">
+                    <div class="form-group col-sm-6">
+                        <label for="pwd">escribir nombre <span style="color: red"> *</span> :</label>
+                        <input type="text" formControlName="Type" class="form-control">
+                        <div *ngIf="t.Type.invalid && (t.Type.dirty || t.Type.touched)" class="invalid-feedback">
+                            <div *ngIf="t.Type.errors?.required">Type Name is required</div>
+                            <div *ngIf="t.Type.errors?.pattern">Solo letras</div>
+                        </div>
+                    </div>
+                    <div class="form-group col-sm-6 mt-5">
+                        <span for="pwd" class="pr-2">estatus:</span>
+                        <input #status type="checkbox" class="ml-1" formControlName="IsActive">
+                    </div>
+                    <div class="form-group col-sm-12 text-center">
+                        <button type="submit" [disabled]="TypeMaster.invalid" class="btn btn-primary">enviar</button>
+                    </div>
+                </div>
+            </form>
+        </p-dialog>
+    </p-tabPanel>
+    <!-- State Master -->
+    <p-tabPanel header="configuracion de estado">
+        <p-table class="custom-table" #dt4 [columns]="salectedStateColumn" [frozenValue]="cols" [autoLayout]="true"
+            [value]="salesState" [resizableColumns]="true" selectionMode="multiple" [(selection)]="selectedData"
+            [responsive]="true" (onLazyLoad)="lazyLoadState($event)" sortField="" [lazy]="true" [paginator]="true"
+            [paginator]="true" [rows]="5" [totalRecords]="totalRecordsState" [rows]="9" sortMode="single" [rowsPerPageOptions]="[5, 10, 20, 100,totalRecordsState]"
+            [showCurrentPageReport]="true" currentPageReportTemplate="ingrese un producto valido: {{totalRecordsState}}"  exportFilename="configuracion de estado">
+            <ng-template pTemplate="caption">
+                <div class="row search-field">
+                    <div class="col-md-3">
+              <p-multiSelect [options]="salectedStateColumn" [(ngModel)]="salectedStateColumn"
+                        optionLabel="header"
+                        selectedItemsLabel="selecciona {0} columnas" [style]="{minWidth: '200px'}"
+                        defaultLabel="Choose Columns"></p-multiSelect>
+                 </div>
+                 <div class="col-md-9">
+             <i class="fa fa-search" style="margin:4px 4px 0 0"></i>
+                        <input type="text" pInputText placeholder="filtro global" style="width:auto"
+                            (input)="dt4.filterGlobal($any($event).target.value, 'contains')">
+                        <button type="button" pButton icon="fa fa-file-excel-o" iconPos="left" label="descargar"
+                            (click)="dt4.exportCSV()" style="margin-left:12px;"></button>
+                        <button type="button" pButton icon="fa fa-plus-circle" (click)="showStateDialog()"
+                            iconPos="left" label="agregar" style="margin-left:12px;"></button>
+                 </div>
+             </div>
+               
+            </ng-template>
+            <ng-template pTemplate="header" let-columns>
+                <tr>
+                    <th *ngFor="let col of columns" pResizableColumn [pSortableColumn]="col.field">
+                        {{col.header}}
+                        <p-sortIcon [field]="col.field"></p-sortIcon>
+                    </th>
+                    <th>estatus</th>
+                    <th>Accion</th>
+                </tr>
+            </ng-template>
+            <ng-template pTemplate="body" let-rowData let-columns="columns">
+                <tr>
+                    <td *ngFor="let col of columns">
+                        {{rowData[col.field]}}
+                    </td>
+                    <td><input type="checkbox" disabled [checked]="rowData.isActive" /></td>
+                    <td><button type="button" (click)="showStateDialogEdit(rowData)" pButton icon="fa fa-pencil"
+                            iconPos="left"></button></td>
+                </tr>
+            </ng-template>
+        </p-table>
+
+        <p-dialog header="{{modalStateHeader}}" [style]="{'width':'60%'}" [(visible)]="displayState" [modal]="true"
+            [dismissableMask]="true">
+            <form class="modelForm" [formGroup]="StateMaster" (ngSubmit)="submitState()" novalidate>
+                <div class="row">
+                    <div class="form-group col-sm-6">
+                        <label for="pwd">nombre del estado<span style="color: red"> *</span> :</label>
+                        <input type="text" formControlName="StateName" class="form-control">
+                        <div *ngIf="g.StateName.invalid && (g.StateName.dirty || g.StateName.touched)"
+                            class="invalid-feedback">
+                            <div *ngIf="g.StateName.errors?.required">estado es requerido</div>
+                            <div *ngIf="g.StateName.errors?.pattern">solo letras </div>
+                        </div>
+                    </div>
+                    <div class="form-group col-sm-6 mt-5">
+                        <span for="pwd" class="pr-2">estatus:</span>
+                        <input #status type="checkbox" class="ml-1" formControlName="IsActive">
+                    </div>
+                    <div class="form-group col-sm-12 text-center">
+                        <button type="submit" [disabled]="StateMaster.invalid" class="btn btn-primary">enviar</button>
+                    </div>
+                </div>
+            </form>
+        </p-dialog>
+    </p-tabPanel>
+    <!-- configuacion de especie  -->
+    <p-tabPanel header="configuacion de especie">
+        <p-table class="custom-table" #dt5 [columns]="selectedSpeciesColumn" [frozenValue]="cols" [autoLayout]="true"
+            [value]="salesSpecies" [resizableColumns]="true" selectionMode="multiple" [(selection)]="selectedData"
+            [responsive]="true" (onLazyLoad)="lazyLoadSpecies($event)" sortField="" [lazy]="true" [paginator]="true"
+            [paginator]="true" [rows]="5" [totalRecords]="totalRecordsSpecies" [rows]="9" sortMode="single" [rowsPerPageOptions]="[5, 10, 20, 100,totalRecordsSpecies]"
+            [showCurrentPageReport]="true" currentPageReportTemplate="ingrese un producto valido: {{totalRecordsSpecies}}"  exportFilename="configuacion de especie">
+            <ng-template pTemplate="caption">
+                <div class="row search-field">
+                    <div class="col-md-3">
+              <p-multiSelect [options]="selectedSpeciesColumn" [(ngModel)]="selectedSpeciesColumn"
+                        optionLabel="header"
+                        selectedItemsLabel="selecciona {0} columnas" [style]="{minWidth: '200px'}"
+                        defaultLabel="Choose Columns"></p-multiSelect>
+                 </div>
+                 <div class="col-md-9">
+             <i class="fa fa-search" style="margin:4px 4px 0 0"></i>
+                        <input type="text" pInputText placeholder="filtro global" style="width:auto"
+                            (input)="dt5.filterGlobal($any($event).target.value, 'contains')">
+                        <button type="button" pButton icon="fa fa-file-excel-o" iconPos="left" label="descargar"
+                            (click)="dt5.exportCSV()" style="margin-left:12px;"></button>
+                        <button type="button" pButton icon="fa fa-plus-circle" (click)="showSpeciesDialog()"
+                            iconPos="left" label="agregar" style="margin-left:12px;"></button>
+                 </div>
+             </div>
+                
+            </ng-template>
+            <ng-template pTemplate="header" let-columns>
+                <tr>
+                    <th *ngFor="let col of columns" pResizableColumn [pSortableColumn]="col.field">
+                        {{col.header}}
+                        <p-sortIcon [field]="col.field"></p-sortIcon>
+                    </th>
+                    <th>estatus</th>
+                    <th>Accion</th>
+                </tr>
+            </ng-template>
+            <ng-template pTemplate="body" let-rowData let-columns="columns">
+                <tr>
+                    <td *ngFor="let col of columns">
+                        {{rowData[col.field]}}
+                    </td>
+                    <td><input type="checkbox" disabled [checked]="rowData.isActive" /></td>
+                    <td><button type="button" (click)="showSpeciesDialogEdit(rowData)" pButton icon="fa fa-pencil"
+                            iconPos="left"></button></td>
+                </tr>
+            </ng-template>
+        </p-table>
+
+        <p-dialog header="{{modalSpeciesHeader}}" [style]="{'width':'60%'}" [(visible)]="displaySpecies" [modal]="true"
+            [dismissableMask]="true">
+            <form class="modelForm" [formGroup]="SpeciesMaster" (ngSubmit)="submitSpecies()" novalidate>
+                <div class="row">
+                    <div class="form-group col-sm-6">
+                        <label for="pwd">especie <span style="color: red"> *</span> :</label>
+                        <input type="text" formControlName="SpeciesName" class="form-control">
+                        <div *ngIf="s.SpeciesName.invalid && (s.SpeciesName.dirty || s.SpeciesName.touched)"
+                            class="invalid-feedback">
+                            <div *ngIf="s.SpeciesName.errors?.required">especie es requerida </div>
+                            <div *ngIf="s.SpeciesName.errors?.pattern">solo letras</div>
+                        </div>
+                    </div>
+                    <div class="form-group col-sm-6 mt-5">
+                        <span for="pwd" class="pr-2">estatus:</span>
+                        <input #status type="checkbox" class="ml-1" formControlName="IsActive">
+                    </div>
+                    <div>agregar : (<span class="redmark" style="color: red;">*</span>)en las casillas seleccionadas.</div>
+                    <div class="form-group col-sm-12 text-center">
+                        <button type="submit" [disabled]="SpeciesMaster.invalid" class="btn btn-primary">enviar</button>
+                    </div>
+                </div>
+            </form>
+        </p-dialog>
+    </p-tabPanel>
+</p-tabView>

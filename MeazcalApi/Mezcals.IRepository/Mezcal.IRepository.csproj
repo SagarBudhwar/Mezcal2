@@ -1,0 +1,18 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Mezcal.Dtos\Mezcal.Dtos.csproj" />
+    <ProjectReference Include="..\Mezcal.Models\Mezcal.Models.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Reference Include="Mezcal.Models">
+      <HintPath>..\Mezcal.Models\bin\Debug\netcoreapp3.1\Mezcal.Models.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+
+</Project>

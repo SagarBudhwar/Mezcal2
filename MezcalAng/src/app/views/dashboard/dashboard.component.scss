@@ -1,0 +1,103 @@
+.card {
+    box-shadow: 0 1px 4px 0 rgba(0,0,0,.14);
+    border: 0;
+    margin-bottom: 10px;
+    margin-top: 10px;
+    border-radius: 6px;
+    color: #333;
+    background: #fff;
+    width: 100%;
+}
+.chart-heading {
+    color: #c38747;
+    text-transform: uppercase;
+    text-align: center;
+    display: block;
+    font-size: 20px;
+    font-weight: 500;
+}
+.card-title {
+    font-weight: 300;
+}
+.white-text {
+    color:#fff;
+}
+.card .card-footer .stats {
+    color: #999;
+    font-size: 12px;
+    line-height: 22px;
+}
+
+.card .card-footer .stats .material-icons {
+    position: relative;
+    top: 4px;
+    font-size: 16px;
+    margin-right: 3px;
+    margin-left: 3px;
+    color: #f44336!important;
+}
+.card-stats .card-header.card-header-icon i {
+    font-size: 36px;
+    line-height: 56px;
+    width: 56px;
+    height: 56px;
+    text-align: center;
+    color:#fff;
+}
+// .card .card-header-warning .card-icon {
+//     background: linear-gradient(60deg,#ffa726,#fb8c00);
+//     box-shadow: 0 4px 20px 0 rgba(0,0,0,.14), 0 7px 10px -5px rgba(255,152,0,.4);
+// }
+// .card .card-header-success .card-icon {
+//     background: linear-gradient(60deg,#66bb6a,#43a047);
+//     box-shadow: 0 4px 20px 0 rgba(0,0,0,.14), 0 7px 10px -5px rgba(76,175,80,.4);
+// }
+// .card .card-header-danger .card-icon {
+//     box-shadow: 0 4px 20px 0 rgba(0,0,0,.14), 0 7px 10px -5px rgba(244,67,54,.4);
+//     background: linear-gradient(60deg,#ef5350,#e53935);
+// }
+
+// .card .card-header-info .card-icon {
+//     box-shadow: 0 4px 20px 0 rgba(0,0,0,.14), 0 7px 10px -5px rgba(0,188,212,.4);
+//     background: linear-gradient(60deg,#26c6da,#00acc1);
+// }
+.card [class*=card-header-] .card-icon, .card [class*=card-header-] .card-text {
+    border-radius: 3px;
+    padding: 15px;
+    margin-top: 0;
+    margin-right: 15px;
+    float: left;
+}
+.card .card-footer {
+    padding: 0;
+    border-top: 1px solid #eee;
+    margin-top: 20px;
+    padding-top: 10px;
+    margin: 0 15px 10px;
+    border-radius: 0;
+    justify-content: space-between;
+    align-items: center;
+}
+.card-header, .card .card-footer {
+    background: #fff;
+    border:none;
+    width:auto;
+}
+.card-stats .card-header .card-category:not([class*=text-]) {
+    color: #fff;
+    font-size: 14px;
+    margin: 0;
+    font-weight: 300;
+    padding-top: 10px;
+}
+
+.card-stats .card-header.card-header-icon {
+    text-align: right;
+    padding: 0 15px;
+    position: relative;
+    border-radius: 5px;
+}
+.card-stats .card-header-warning {background: linear-gradient(60deg,#ffa726,#fb8c00);}
+.card-stats .card-header-success {background: linear-gradient(60deg,#66bb6a,#43a047);}
+.card-stats .card-header-danger {background: linear-gradient(60deg,#ef5350,#e53935);}
+.card-stats .card-header-info {background: linear-gradient(60deg,#26c6da,#00acc1);}
